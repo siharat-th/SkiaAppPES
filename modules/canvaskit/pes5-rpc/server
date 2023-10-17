@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+#SERVER="$( dirname ${BASH_SOURCE[0]} )/server.js"
+#exec $SERVER "$@"
+
+SCRIPT_PATH="$(realpath $( dirname ${BASH_SOURCE[0]} ))"
+#echo "SCRIPT_PATH: \"$SCRIPT_PATH\""
+
+#cd $SCRIPT_PATH
+
+exec $SCRIPT_PATH/server.js $@
+
+#cd $CWD

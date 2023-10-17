@@ -95,7 +95,17 @@ action("create_notomono_cpp") {
 }
 
 skia_wasm_lib("canvaskit") {
-  deps = [ "../..:skia" ]
+  include_dirs = [
+    "../../apps/sk_ui",
+    "//apps2/DecUI",
+    "../../third_party/externals/imgui"
+  ]
+  
+  deps = [
+        "../..:skia",
+        #"../../modules/svg",
+        #"../../apps/sk_ui",
+    ]
   if (skia_canvaskit_enable_paragraph) {
     deps += [
       "../../modules/skparagraph:skparagraph",

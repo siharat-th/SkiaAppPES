@@ -9,6 +9,43 @@ import("gn/shared_sources.gni")
 import("gn/skia.gni")
 import("gn/toolchain/wasm.gni")
 
+declare_args() {
+  pom = false
+  gui_app = false
+  pes5 = false
+  path2stitch = false
+  noom = false
+  apps2 = false
+  apps3 = false
+  jim = false
+}
+
+if (is_mac) {
+  pom = false
+  gui_app = false
+  apps2 = true
+  apps3 = true
+}
+
+if (jim) {
+  apps2 = true
+  pom = true
+}
+
+if (is_win) {
+  #noom = true
+  #gui_app = true
+  #pes5 = true
+  apps2 = true
+}
+
+if (is_linux) {
+  pom = false
+  gui_app = false
+  apps2 = true
+  jimmy = true
+}
+
 if (is_fuchsia) {
   import("//build/fuchsia/sdk.gni")
   import("build/fuchsia/fuchsia_download_sdk.gni")
@@ -1728,7 +1765,29 @@ group("modules") {
     "modules/skparagraph",
     "modules/skshaper",
     "modules/svg",
+    "modules/skunicode",
+    #"//third_party/imgui",
+    #"apps/sk_ui",
+    #"apps2/0010_LayersTestApp/LayersTestLib",
+    #"apps2/1000_DecTemplateApp/DecTemplateLib",
+    #"apps2/1012_MagicPatternApp3/MagicPatternLib",
+    #"apps2/1052_MagicPatternPatternGrader/MPPatternGrader",
+    #"apps2/1080_PES5Template/PESTemplateLib",
+    #"apps3/3000_UComposerApp/UComposerLib",
   ]
+  if( pom || noom ) {
+    deps += [
+      "modules/pes",
+      "apps/JukPuk",
+      "apps/SDL_gui"
+    ]
+  }
+  
+  if( !is_win ) {
+    deps += [
+      "apps/mqtt_c",
+    ]
+  }
 
   if (is_wasm) {
     deps += [ "modules/canvaskit" ]
@@ -3018,7 +3077,48 @@ if (skia_enable_tools) {
       ]
     }
   }
+  
+  # JS APP
+  if (apps2 && skia_use_gl && (is_linux || is_win || is_mac || is_ios || is_android))
+  {
+    test_app("LayersTestApp") {
+      if(!defined(defines)) {
+        defines = []
+      }
+      defines += [
+        "APP_NAME=\"LayersTestApp\"",
+      ]
+      is_shared_library = is_android
+      include_dirs = [
+        "//"
+      ]
+      sources = [
+        "apps/sk_ui/_sk_app/App.cpp",
+      ]
+      libs = []
 
+      deps = [
+        ":flags",
+        ":skia",
+        ":tool_utils",
+        ":gpu_tool_utils",
+        ":sk_app",
+        #"//third_party/libsdl",
+        "//third_party/imgui",
+        #"//modules/svg",
+        "//apps/sk_ui",
+        "//apps2/0010_LayersTestApp/LayersTestLib",
+        "modules/skparagraph",
+      ]
+
+      if( !is_win ) {
+        deps += [
+          "apps/mqtt_c",
+        ]
+      }
+    }
+  }
+  
   if (skia_use_vulkan) {
     test_app("VulkanBasic") {
       # Bots and even devs may not have Vulkan headers, so put

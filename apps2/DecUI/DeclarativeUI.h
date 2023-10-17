@@ -52,6 +52,6 @@
 #include "DecJob.h"
 #include "DecTab.h"
 #include "DecParagraph.h"
-#include "DecQRCode.h"
+//#include "DecQRCode.h"
 
 #endif //__DECLARATIVE_UI_H__

@@ -22,6 +22,15 @@ declare_args() {
   skia_canvaskit_legacy_draw_vertices_blend_mode = false
   skia_canvaskit_enable_webgpu = false
   skia_canvaskit_enable_webgl = false
+
+  pinn_enable_template = false
+  pinn_enable_pes5 = false
+  pinn_enable_svg2emb = false
+  pinn_enable_avataremb = false
+  pinn_enable_drawemb = false
+  pinn_enable_victoremb = false
+  pinn_enable_svgeditor = false
+  pinn_enable_ucomposer = false
 }
 
 # Assert that skia_canvaskit_profile_build implies release mode.

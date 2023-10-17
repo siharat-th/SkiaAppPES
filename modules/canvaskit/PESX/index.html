@@ -1,0 +1,750 @@
+<!DOCTYPE htMl>
+<head>
+  <title>CanvasKit (Skia via Web AsseMbly)</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/44f644827e.js" crossorigin="anonymous"></script>
+  <script src="./bootstrap-input-spinner.js"></script>
+  
+  <style>
+    #jsCanvas {
+      border: 1px solid black;
+      background-color: white;
+    }
+
+    body{
+      padding: 2rem 0rem;
+      margin:0;
+      font-size: 14px;
+    }
+    .image-parent {
+      max-width: 60px;
+      max-height: 50px;
+    }
+
+    /* Style the navigation bar */
+    .navbar {
+      width: 100%;
+      background-color: #555;
+      overflow: auto;
+    }
+
+    /* Navbar links */
+    .navbar a {
+      float: left;
+      text-align: center;
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    /* Navbar links on mouse-over */
+    .navbar a:hover {
+      background-color: #000;
+    }
+
+    /* Current/active navbar link */
+    .navbar.active {
+      background-color: #4CAF50;
+    }
+
+    /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+    @media screen and (max-width: 500px) {
+      .navbar a {
+        float: none;
+        display: block;
+        }
+      }
+
+    .icon-bar {
+      width: 70px; /* Set a specific width */
+      background-color: #555; /* Dark-grey background */
+    }
+
+    .icon-bar a {
+      display: block; /* Make the links appear below each other instead of side-by-side */
+      text-align: center; /* Center-align text */
+      padding: 13px; /* Add some padding */
+      transition: all 0.3s ease; /* Add transition for hover effects */
+      color: white; /* White text color */
+      font-size: 26px; /* Increased font-size */
+    }
+
+    .icon-bar a:hover:not(.active) {
+      background-color: #000; /* Add a hover color */
+    }
+
+    .active {
+      /* background-color: #4CAF50; Add an active/current color */
+      background-color: #3274EE;
+    }
+
+    .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+
+    .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 16px;
+    }
+
+    .tab button:hover {
+      background-color: #ddd;
+    }
+
+    .tab button.active {
+      background-color: #ccc;
+    }
+
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+      border-bottom: none;
+    }
+
+    input[type="number"] {
+      -webkit-appearance: textfield;
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+
+    .number-input {
+      border: 2px solid #ddd;
+      display: inline-flex;
+    }
+
+    .number-input,
+    .number-input * {
+      box-sizing: border-box;
+    }
+
+    .number-input button {
+      outline:none;
+      -webkit-appearance: none;
+      background-color: transparent;
+      border: none;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      margin: 0;
+      position: relative;
+    }
+
+    .number-input button:before,
+    .number-input button:after {
+      display: inline-block;
+      position: absolute;
+      content: '';
+      width: 1rem;
+      height: 2px;
+      background-color: #212121;
+      transform: translate(-50%, -50%);
+    }
+    .number-input button.plus:after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .number-input input[type=number] {
+      /* font-family: sans-serif; */
+      max-width: 5rem;
+      padding: .5rem;
+      border: solid #ddd;
+      border-width: 0 2px;
+      /* font-size: 16px; */
+      height: 28px;
+      /* font-weight: bold; */
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body">
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand" href="#">PES5</a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+
+      <li class="nav-item" hidden>
+        <a class="nav-link" href="#">
+          <i class="fa fa-fw fa-folder"></i> 
+          <input type='file' id='openfile' accept=".ppes, .ppes5">
+        </a>
+      </li>
+      <li class="nav-item" hidden>
+        <a class="nav-link" href="#"><i class="fa fa-fw fa-sign-in"> </i><input type='file' id='importfile' accept=".pes, .svg, .pinn"></a>
+      </li>
+      <li class="nav-item" hidden>
+        <a class="nav-link" href="#"><i class="fa fa-fw fa-sign-in"> </i><input type='file' id='importfileClassify' accept=".pes, .pinn"></a>
+      </li>
+    </ul>
+
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+
+  </nav>
+
+  <div class="container-fluid" style="margin-top:40px">
+
+    <!-- Menu bar buttons -->
+    <div menubar>
+      <row>
+          <a href="#" role="button" class="btn btn-light" data-toggle="tooltip" title="New" id='menubar-new-button'><i class="fa fa-fw fa-file"></i></a>
+          <a href="#" role="button" class="btn btn-light" data-toggle="tooltip" title="Open" id='menubar-open-button'><i class="fa fa-fw fa-folder"></i></a>
+          <a href="#" role="button" class="btn btn-light" data-toggle="tooltip" title="Save" id='menubar-save-button'><i class="fa fa-fw fa-save"></i></a>
+          <a href="#" role="button" class="btn btn-light" data-toggle="tooltip" title="Import" id='menubar-import-button'><i class="fa fa-fw fa-sign-in"></i></a>
+          <a href="#" role="button" class="btn btn-light" data-toggle="tooltip" title="Import&Classify" id='menubar-import-classify-button'><i class="fa fa-fw fa-sign-in"></i></a>
+          <a href="#" role="button" class="btn btn-light" data-toggle="tooltip" title="Export" id='menubar-export-button'><i class="fa fa-fw fa-sign-out"></i></a>
+
+          <select name="scale" id="scale-select">
+            <option selected>Zoom Level</option>
+            <option value=0.25>25%</option>
+            <option value=0.5>50%</option>
+            <option value=0.75>75%</option>
+            <option value=1.0>100%</option>
+            <option value=1.5>150%</option>
+            <option value=2.0>200%</option>
+            <option value=3.0>300%</option>
+            <option value=4.0>400%</option>
+            <option value=5.0>500%</option>
+            <option value=7.5>750%</option>
+            <option value=10.0>1000%</option>
+          </select>
+
+          <a href="#" role="button" class="btn btn-light" id='menubar-zoomIn-button'><i class="fa fa-search-plus"></i></a>
+          <a href="#" role="button" class="btn btn-light" id='menubar-zoomOut-button'><i class="fa fa-search-minus"></i></a>
+
+          <label for="hoop-select">Hoop size(cm):</label>
+          <select name="hoop" id="hoop-select">
+            <option>6.0 x 4.0</option>
+            <option selected>10.0 x 10.0</option>
+            <option>13.0 x 18.0</option>
+            <option>20.0 x 20.0</option>
+            <option>36.0 x 20.0</option>
+            <option>30.0 x 10.0</option>
+            <option>36.0 x 36.0</option>
+            <option>13.0 x 6.0</option>
+            <option>9.0 x 8.0</option>
+            <option>4.5 x 2.4</option>
+          </select>
+
+          <!-- <a href="#" role="button" class="btn btn-light" id='menubar-simstart-button'><i class="fa fa-play"></i></a> -->
+          <!-- <a href="#" role="button" class="btn btn-light" id='menubar-simpause-button'><i class="fa fa-pause"></i></a> -->
+          <!-- <a href="#" role="button" class="btn btn-light" id='menubar-simstop-button'><i class="fa fa-stop"></i></a> -->
+
+      </row>
+    </div>
+
+    <div class="row">
+
+      <!-- PES's Toolbox -->
+      <div class="icon-bar">
+        <a class="pestool active" href="#" id='selectTool' data-toggle="tooltip" title="Selection"><i class="fa fa-mouse-pointer"></i></a> 
+        <a class="pestool" href="#"  id='handTool' data-toggle="tooltip" title="Hand"><i class="fa fa-hand-paper-o"></i></a> 
+        <a class="pestool" href="#"   id='shapeTool' data-toggle="tooltip" title="Shape"><i class="fas fa-shapes"></i></a>
+        <a class="pestool" href="#"   id='ttfFontTool' data-toggle="tooltip" title="True Type Font"><i class="fa fa-font"></i></a> 
+        <a class="pestool" href="#"    id='ppefFontTool' data-toggle="tooltip" title="Embroidery Font"><i class="fab fa-uniregistry"></i></a>
+        <a class="pestool" href="#" id='satinColumnTool' data-toggle="tooltip" title="Satin Column"><i class="fas fa-draw-polygon"></i></a>
+        <a class="pestool" href="#" id='drawingTool' data-toggle="tooltip" title="Drawing"><i class="fa fa-pencil"></i></a>
+      </div>
+
+      <!-- Main canvas -->
+      <canvas id="jsCanvas" width=800 height=720></canvas>
+
+      <!-- Panel box -->
+      <div class="tab" style="width:250px;">
+        <button class="tablinks" id="layer-tab" style="width:50%" onclick="updateTabContent(event, 'Layer')">Layer</button>
+        <button class="tablinks" id="properties-tab" style="width:50%" onclick="updateTabContent(event, 'Properties')">Properties</button>
+        
+        <!-- Layer tab pane -->
+        <div id="Layer" class="tabcontent" style="padding-top: 5px;">
+          <div class="container">
+            <row style="margin: 0 -12px">
+                <a href="#" role="button" class="btn btn-light" data-toggle="tooltip" title="Up" id='level-up-layer-button'><i class="fa fa-level-up"></i></a>
+                <a href="#" role="button" class="btn btn-light" data-toggle="tooltip" title="Down" id='level-down-layer-button'><i class="fa fa-level-down"></i></a>
+                <a href="#" role="button" class="btn btn-light" data-toggle="tooltip" title="Merge" id='merge-layer-button'><i class="fa fa-object-group"></i></a>
+                <a href="#" role="button" class="btn btn-light" data-toggle="tooltip" title="Duplicate" id='duplicate-layer-button'><i class="fa fa-clone"></i></a>
+                <a href="#" role="button" class="btn btn-light" data-toggle="tooltip" title="Delete" id='delete-layer-button'><i class="fa fa-trash"></i></a>
+            </row>
+          </div>
+          
+          <div class="container" style="height: 620px; overflow: hidden; overflow-y: scroll; border: 1px solid lightgrey;">
+            <div class="row" style="margin: 0 -36px">
+              <div class="col-12 col-sm-8 col-lg">
+                <ul class="list-group" id="layer-list-group">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Properties tab pane -->
+        <div id="Properties" class="tabcontent" style="padding-top: 5px">
+          <div class="container" style="max-height: 590px; overflow: hidden; overflow-y: scroll; border: 1px solid lightgrey; padding-top: 5px; padding-bottom: 5px;">
+            <p id="labelTotalStitches">Total stitches: 0</p>
+            <p id="labelTotalJump">Total jump: 0</p>
+
+            <label for="paramText" id="labelText">Text:</label>
+            <input type="text" value="ภิญญ์จักรปักสวัสดีค่ะ" placeholder="Input your text..." id="paramText"  style="width:100%;">
+
+            <label for="paramPPEFFont" id="labelPPEFFont">Font(PPEF):</label>
+            <select name="Font(PPEF)" class="custom-select" id="paramPPEFFont">
+            </select>
+
+            <label for="paramTTFFont" id="labelTTFFont">Font(TTF):</label>
+            <select name="Font(TTF)" class="custom-select" id="paramTTFFont">
+            </select>
+
+            <label for="paramFontSize" id="labelFontSize">Font size:</label>
+            <select name="Font size" class="custom-select" id="paramFontSize">
+            </select>
+
+            <div style="margin-top: 10px; border-top:2px solid lightgray;" >
+              <label for="paramStrokeType" id="labelStrokeType" style="margin-top: 10px;">Stroke type:</label>
+              <select name="Stroke type" class="custom-select" id="paramStrokeType">
+              </select>
+            </div>
+
+            <div id="strokeColor" style="margin-top: 5px">
+              <input type="color" id="paramStrokeColor" name="strokeColor" value="#000000">
+              <label for="paramStrokeColor">Stroke color</label>
+            </div>
+
+
+            <!-- Stroke Running Type -->
+            <div id='stroke-running-group'>
+              <div id="stroke-run-pitch-group">
+                Run pitch(mm)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-strokeRunPitch" min="0.2" max="5.0" name="quantity" value="1.0" step="0.1" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+
+              <div id="stroke-inset-group">
+                  <br>
+                  Inset/Outset(mm)
+                  <div class="number-input">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                    <input class="quantity" id="param-strokeRunningInset" min="-2.0" max="2.0" name="quantity" value="0.0" step="0.1" type="number">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                  </div>
+                </div>
+
+              <label for="paramJoinType" id="labelJoinType">Join type:</label>
+              <select name="Join type" class="custom-select" id="paramJoinType">
+              </select>
+            </div>
+
+
+            <!-- Stroke Satin Type -->
+            <div id='stroke-satin-group'>
+              <div id="stroke-width-group">
+                Stroke width(mm)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-strokeWidth" min="0.25" max="10.0" name="quantity" value="1.0" step="0.25" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+
+              <div id="stroke-density-group">
+                Density(line/mm)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-strokeDensity" min="0.25" max="10" name="quantity" value="2.5" step="0.25" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+            </div>
+
+
+             <!-- Stroke Motif Type -->
+             <div id='stroke-motif-group'>
+              <div id="stroke-motif-size-group">
+                Pattern size(mm)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-motif-size" min="1.0" max="12.0" name="quantity" value="2.5" step="0.5" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+
+              <div id="stroke-motif-spacing-group">
+                Spacing(mm)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-motif-spacing" min="0" max="12" name="quantity" value="0" step="0.5" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+
+              <div id="stroke-motif-runPitch-group">
+                Run pitch(mm)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-motif-runPitch" min="0.5" max="5" name="quantity" value="5" step="0.25" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+            </div>
+
+
+            <div style="margin-top: 10px; border-top:2px solid lightgray;" >
+              <label for="paramFillType" id="labelFillType" style="margin-top: 10px;">Fill type:</label>
+              <select name="Fill type" class="custom-select" id="paramFillType">
+              </select>
+            </div>
+
+            <div id="fillColor" style="margin-top: 5px">
+              <input type="color" id="paramFillColor" name="fillColor" value="#f6b73c">
+              <label for="paramFillColor">Fill color</label>
+            </div>
+
+            <div id="autoColor">
+              <input type="checkbox" id="paramAutoColor" checked> Auto nearest color
+            </div>
+
+            <!-- PPEF ADV Group -->
+            <div id="ppef-adv-group" style="margin-bottom: 10px;">
+              <div id="ppef-effect-group">
+                <label for="paramEffectType" id="labelEffectType">Effect:</label>
+                <select name="Effect type" class="custom-select" id="paramEffectType">
+                </select>
+              </div>
+
+              <div id="italic-group">
+                <input type="checkbox" id="paramItalic"> Italic
+              </div>
+              <div id="border-group">
+                <input type="checkbox" id="paramBorder"> Border
+              </div>
+
+              <!-- <div id="font-weight-group">
+                Font weight(%)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" min="100" max="150" name="quantity" value="100" step="1" type="number" id="paramFontWeight">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div> -->
+
+              <div id="font-space-group">
+                <row>
+                  <a href="#" role="button" class="btn btn-light" id='inter-char-dec'><i class='fa fa-minus'></i></a>
+                  <a href="#" role="button" class="btn btn-light" id='inter-char-inc'><i class='fa fa-plus'></i></a>
+                  <a href="#" role="button" class="btn btn-light" id='space-dec'><i class='fa fa-minus-square-o'></i></a>
+                  <a href="#" role="button" class="btn btn-light" id='space-inc'><i class='fa fa-plus-square-o'></i></a>
+                </row>
+              </div>
+            </div>
+
+            <!-- Satin Fill Group -->
+            <div id="satin-fill-group">
+              <div id="density-group">
+                Density(line/mm)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-satin-fill-density" min="0.0" max="5.0" name="quantity" value="1.5" step="0.25" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+
+              <div id="pull-compensate-group">
+                Pull compensate(mm)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-pullCompensate" min="-0.5" max="2.0" name="quantity" value="0.3" step="0.1" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+            </div>
+
+
+
+            <!-- Step Fill Type -->
+            <div id='step-fill-group' hidden>
+              <div id="stepFill-angle-group">
+                Angle(degree)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-fill-sewDirection" min="0" max="180" name="quantity" value="0" step="5" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+
+              <div id="patternFill-density-group">
+                Density(line/mm)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-fill-density" min="0.25" max="10" name="quantity" value="2.5" step="0.25" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+            </div>
+
+
+
+            <!-- Pattern Fill Type -->
+            <div id='pattern-fill-group'>
+              <div id="patternFill-size-group">
+                Pattern size(mm)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-patternFill-size" min="1.0" max="12.0" name="quantity" value="2.5" step="0.5" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+
+              <div id="patternFill-angle-group">
+                Angle(degree)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-patternFill-sewDirection" min="0" max="180" name="quantity" value="0" step="5" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+
+              <div id="patternFill-density-group">
+                Density(line/mm)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-patternFill-density" min="0.25" max="10" name="quantity" value="2.5" step="0.25" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Motif Fill Type -->
+            <div id='motif-fill-group'>
+              <div id="motifFill-size-group">
+                Pattern size(mm)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-motifFill-size" min="1.0" max="12.0" name="quantity" value="2.5" step="0.5" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+
+              <div id="motifFill-spacing-group">
+                Spacing(mm)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-motifFill-spacing" min="0" max="12" name="quantity" value="0" step="0.5" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+
+              <div id="motifFill-rowSpacing-group">
+                Row Spacing(mm)
+                <div class="number-input">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                  <input class="quantity" id="param-motifFill-rowSpacing" min="0" max="10" name="quantity" value="0" step="0.25" type="number">
+                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div>
+            <br>
+            <a href="#" role="button" class="btn btn-primary" id="applyButton" style="width:100%;">Apply</a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="embFontModal" tabindex="-1" role="dialog" aria-labelledby="embFontModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="embFontModalLabel">Create Text Object</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Input your text:</label>
+              <input type="text" class="form-control" id="modal-input-text" value="ภิญญ์จักรปักสวัสดีค่ะ">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="modal-ok-button">OK(Create)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <!-- Motif dialog -->
+  <div class="modal fade" id="motif-modal" tabindex="-1" role="dialog" aria-labelledby="embFontModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="motif-modal-title">Motif Dialog</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <!-- <label class="col-form-label">Dialog body</label> -->
+              <div class="row"  style="margin:15px 15px;">
+                <canvas id="motif-modal-canvas" width="256px" height="256px" style="background: solid white; border: 1px solid lightgray;"></canvas>
+                <div class="container" style="width: 60%; height: 256px; overflow: hidden; overflow-y: scroll;">
+                  <div class="list-group" id="motif-list-group">
+                  </div>
+              </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="motif-modal-ok-button">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <!-- Pattern dialog -->
+  <div class="modal fade" id="pattern-modal" tabindex="-1" role="dialog" aria-labelledby="embFontModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="pattern-modal-title">Pattern Dialog</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <div class="row"  style="margin:15px 15px;">
+                <canvas id="pattern-modal-canvas" width="256px" height="256px" style="background: solid white; border: 1px solid lightgray;"></canvas>
+                <div class="container" style="width: 60%; height: 256px; overflow: hidden; overflow-y: scroll;">
+                  <div class="list-group" id="pattern-list-group"></div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="pattern-modal-ok-button">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <!-- Shape dialog -->
+  <div class="modal fade" id="shape-modal" tabindex="-1" role="dialog" aria-labelledby="shapeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="shape-modal-title">Shape Dialog</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <div class="row"  style="margin:15px 15px;">
+                <canvas id="shape-modal-canvas" width="256px" height="256px" style="background: solid white; border: 1px solid lightgray;"></canvas>
+                <div class="container" style="width: 60%; height: 256px; overflow: hidden; overflow-y: scroll;">
+                  <div class="list-group" id="shape-list-group"></div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="shape-modal-ok-button">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<script>
+  $("input[class='bs4-spinner']").inputSpinner()
+
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+    document.getElementById('layer-tab').click();
+  });
+
+  function updateTabContent(evt, tabName){
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+</script>
+
+<script type="text/javascript" src="./bin/canvaskit.js"></script>
+<script type="text/javascript" src="./sql/sql-wasm.js"></script>
+<script type="module" src="./app01_loader.js"></script>
+<script type="text/javascript" src="./UnicodeHelper.js"></script>
+<script type="text/javascript" src="./DataStream.js"></script>
+<script type="text/javascript" src="./PesHelper.js"></script>
+<script type="text/javascript" src="./gui.js"></script>
+<script type="text/javascript" src="./app.js"></script>
+
+</body>
