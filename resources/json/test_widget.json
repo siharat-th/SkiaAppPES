@@ -1,0 +1,223 @@
+{
+    "Widget": {
+        "backgroundColor": "#FFFF00",
+        "alpha": 0,
+        "children": [
+            {
+                "MQTT" : {
+                    "addr": "dev.pandahut.co",
+                    "port": "1883",
+                    "topic": "test",
+                    "username": "edison",
+                    "password": "Ed1son.MQ#",
+                    "publishData" : [ "MySlider" ]
+                }
+            },            
+            {
+                "Center": {
+                    "alpha": 0,
+                    "children": [
+                        {
+                            "Container": {
+                                "width": 200,
+                                "height": 200,
+                                "backgroundColor": "#6495ED",
+                                "alpha": 1.0,
+                                "padding": 20,
+                                "children": [
+                                    {
+                                        "Widget": {
+                                            "backgroundColor": "#FFBF00",
+                                            "border": 5,
+                                            "borderRadius": 0,
+                                            "alpha" : 1,
+                                            "children": [
+                                                {
+                                                    "Center": {
+                                                        "backgroundColor": "#FFFFFF",
+                                                        "alpha": 1.0,
+                                                        "border": 1,
+                                                        "x": -20,
+                                                        "y": -20,
+                                                        "width": 120,
+                                                        "height": 120,
+                                                        "movable": 1,
+                                                        "children": [
+                                                            {
+                                                                "Icon": {
+                                                                    "icon": "#F015"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "Widget": {
+                    "x": 220,
+                    "y": 20,
+                    "width": 360,
+                    "height": 240,
+                    "backgroundColor": "#FFFFFF",
+                    "border": 2,
+                    "alpha": 1,
+                    "borderRadius": 20,
+                    "borderColor": "#000000",
+                    "movable": 1,
+                    "children": [
+                        {
+                            "Image": {
+                                "resource": "images/dog.jpg",
+                                "borderRadius": 0,
+                                "movable": 1
+                            }
+                        },
+                        {
+                            "Text": {
+                                "text": "Hello World สวัสดีมนุษย์! เปิดไก่เป่าปี่ดีที่สุด",
+                                "movable": 1
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "Widget": {
+                    "border": 1,
+                    "children": [
+                        {
+                            "Row": {
+                                "x": 10,
+                                "y": 320,
+                                "width": 320,
+                                "height": 0,
+                                "border": 1,
+                                "padding": 10,
+                                "alpha": 0.8,
+                                "movable": 1,
+                                "backgroundColor": "#A0A0A0",
+                                "secondaryAlignment": "Center",
+                                "children": [
+                                    {
+                                        "Text": {
+                                            "text": "Text without icon",
+                                            "color": "#FF0000",
+                                            "border": 1
+                                        }
+                                    },
+                                    {
+                                        "Label": {
+                                            "title": "Label without icon",
+                                            "color": "#008000"
+                                        }
+                                    },
+                                    {
+                                        "Label": {
+                                            "icon": "#F015",
+                                            "color": "#0000FF",
+                                            "title": "Label with icon",
+                                            "border": 1
+                                        }
+                                    },
+                                    {
+                                        "Number": {
+                                            "id": "MyNumber",
+                                            "icon": "#F015",
+                                            "value": 32,
+                                            "data": "MySlider"
+                                        }
+                                    },
+                                    {
+                                        "Icon": {
+                                            "id": "MyIcon",
+                                            "icon": "#f7e4",
+                                            "iconSize": 32,
+                                            "color": "#000000",
+                                            "min": 0,
+                                            "max": 180,
+                                            "minColor": "#000000",
+                                            "maxColor": "#FF0000",
+                                            "changeColorByValue": 1,
+                                            "blink": 500                  
+                                        }
+                                    },
+                                    {
+                                        "ProgressBar": {
+                                            "id": "MyProgressBar",
+                                            "min": 0,
+                                            "max": 180,
+                                            "width": 200,
+                                            "height": 32,
+                                            "color": "#FF0000",
+                                            "data": "MySlider"
+                                        }
+                                    },   
+                                    {
+                                        "Column": {
+                                            "width": 0,
+                                            "height": 130,
+                                            "children": [
+                                                {
+                                                    "Guage": {
+                                                        "id": "MyGuage",
+                                                        "min": 0,
+                                                        "max": 180,
+                                                        "width": 120,
+                                                        "height": 120,
+                                                        "arcWidth": 26,
+                                                        "arcBorder": 2,
+                                                        "arcPad": 2,
+                                                        "startAngle": 105,
+                                                        "sweepAngle": 330,
+                                                        "color": "#008000",
+                                                        "data": "MySlider"
+                                                    }
+                                                }, 
+                                                {
+                                                    "Guage": {
+                                                        "id": "MyGuageMQTT",
+                                                        "min": 0,
+                                                        "max": 180,
+                                                        "width": 120,
+                                                        "height": 120,
+                                                        "arcWidth": 26,
+                                                        "arcBorder": 2,
+                                                        "arcPad": 2,
+                                                        "startAngle": 105,
+                                                        "sweepAngle": 330,
+                                                        "color": "#008000",
+                                                        "data": "MQTT_MySlider"
+                                                    }
+                                                }                                                  
+                                            ]
+                                        }
+                                    },                       
+                                    {
+                                        "Slider": {
+                                            "id": "MySlider",
+                                            "min": 0,
+                                            "max": 180,
+                                            "width": 200,
+                                            "height": 32,
+                                            "color": "#8080FF",
+                                            "data": "MySlider",
+                                            "border": 1
+                                        }
+                                    }                                                                                                                                                                                                                                                                                                                              
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }                                
+        ]
+    }
+}

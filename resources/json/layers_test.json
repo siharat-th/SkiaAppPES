@@ -1,0 +1,33 @@
+{
+    "Widget": {
+        "x": 20,
+        "y": 50,
+        "width": 360,
+        "height": 240,
+        "backgroundColor": "#FFFFFF",
+        "border": 2,
+        "alpha": 1,
+        "borderRadius": 20,
+        "borderColor": "#000000",
+        "movable": 1,
+        "children": [
+            {
+                "Image": {
+                    "resource": "images/dog.jpg",
+                    "borderRadius": 0,
+                    "movable": 1,
+                    "x": 40,
+                    "y": 40
+                }
+            },
+            {
+                "Text": {
+                    "text": "Hello World สวัสดีมนุษย์! ไก่เป่าปี่ดีที่สุด",
+                    "movable": 1,
+                    "x": 10,
+                    "y": 5
+                }
+            }
+        ]
+    }
+}

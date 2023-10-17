@@ -1,0 +1,239 @@
+{
+    "Scaffold": {
+        "appBar": {
+            "AppBar": {
+                "leading": [
+                    {
+                        "Icon": {
+                            "icon": "#f0c9",
+                            "color": "#FFFFFF"
+                        }
+                    }
+                ],
+                "title": "TemplateApp",
+                "actions": [
+                    {
+                        "Icon": {
+                            "icon": "#f002",
+                            "color": "#FFFFFF"
+                        }
+                    },
+                    {
+                        "Icon": {
+                            "icon": "#f142",
+                            "width": 32,
+                            "color": "#FFFFFF"
+                        }
+                    }
+                ]
+            }
+        },
+        "body": {
+            "Widget": {
+                "backgroundColor": "#FFFFFF",
+                "padding": 10,
+                "alpha": 1,
+                "children": [
+                    {
+                        "Center": {
+                            "alpha": 0,
+                            "children": [
+                                {
+                                    "Container": {
+                                        "width": 200,
+                                        "height": 200,
+                                        "backgroundColor": "#6495ED",
+                                        "alpha": 1.0,
+                                        "padding": 20,
+                                        "children": [
+                                            {
+                                                "Widget": {
+                                                    "backgroundColor": "#FFBF00",
+                                                    "border": 5,
+                                                    "borderRadius": 0,
+                                                    "alpha": 1,
+                                                    "children": [
+                                                        {
+                                                            "Center": {
+                                                                "backgroundColor": "#FFFFFF",
+                                                                "alpha": 1.0,
+                                                                "border": 1,
+                                                                "x": -20,
+                                                                "y": -20,
+                                                                "width": 120,
+                                                                "height": 120,
+                                                                "movable": 1,
+                                                                "children": [
+                                                                    {
+                                                                        "Icon": {
+                                                                            "icon": "#F015"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "Widget": {
+                                        "border": 1,
+                                        "children": [
+                                            {
+                                                "Row": {
+                                                    "x": 10,
+                                                    "y": 10,
+                                                    "width": 320,
+                                                    "height": 0,
+                                                    "border": 1,
+                                                    "padding": 10,
+                                                    "children": [
+                                                        {
+                                                            "Text": {
+                                                                "text": "Text without icon",
+                                                                "color": "#FF0000",
+                                                                "border": 1
+                                                            }
+                                                        },
+                                                        {
+                                                            "Label": {
+                                                                "title": "Label without icon",
+                                                                "color": "#008000"
+                                                            }
+                                                        },
+                                                        {
+                                                            "Label": {
+                                                                "icon": "#F015",
+                                                                "color": "#0000FF",
+                                                                "title": "Label with icon",
+                                                                "border": 1
+                                                            }
+                                                        },
+                                                        {
+                                                            "Number": {
+                                                                "id": "MyNumber",
+                                                                "icon": "#F015",
+                                                                "value": 32,
+                                                                "data": "MySlider"
+                                                            }
+                                                        },
+                                                        {
+                                                            "Icon": {
+                                                                "id": "MyIcon",
+                                                                "icon": "#f7e4",
+                                                                "iconSize": 32,
+                                                                "color": "#000000",
+                                                                "min": 0,
+                                                                "max": 180,
+                                                                "minColor": "#000000",
+                                                                "maxColor": "#FF0000",
+                                                                "changeColorByValue": 1,
+                                                                "blink": 500                  
+                                                            }
+                                                        },
+                                                        {
+                                                            "ProgressBar": {
+                                                                "id": "MyProgressBar",
+                                                                "min": 0,
+                                                                "max": 180,
+                                                                "width": 200,
+                                                                "height": 32,
+                                                                "color": "#FF0000",
+                                                                "data": "MySlider"
+                                                            }
+                                                        },   
+                                                        {
+                                                            "Guage": {
+                                                                "id": "MyGuage",
+                                                                "min": 0,
+                                                                "max": 180,
+                                                                "width": 120,
+                                                                "height": 120,
+                                                                "arcWidth": 26,
+                                                                "arcBorder": 2,
+                                                                "arcPad": 2,
+                                                                "startAngle": 105,
+                                                                "sweepAngle": 330,
+                                                                "color": "#008000",
+                                                                "data": "MySlider"
+                                                            }
+                                                        },                                                                       
+                                                        {
+                                                            "Slider": {
+                                                                "id": "MySlider",
+                                                                "min": 0,
+                                                                "max": 180,
+                                                                "width": 200,
+                                                                "height": 32,
+                                                                "color": "#8080FF",
+                                                                "data": "MySlider",
+                                                                "border": 1
+                                                            }
+                                                        },
+                                                        {
+                                                            "Guage": {
+                                                                "id": "MyGuageMQTT",
+                                                                "min": 0,
+                                                                "max": 180,
+                                                                "width": 120,
+                                                                "height": 120,
+                                                                "arcWidth": 26,
+                                                                "arcBorder": 2,
+                                                                "arcPad": 2,
+                                                                "startAngle": 105,
+                                                                "sweepAngle": 330,
+                                                                "color": "#008000",
+                                                                "data": "MQTT_MySlider"
+                                                            }
+                                                        }                                                                                                                                                                                                                                                                                                                                
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }                                
+                            ]
+                        }
+                    },
+                    {
+                        "MQTT" : {
+                            "addr": "dev.pandahut.co",
+                            "port": "1883",
+                            "topic": "test",
+                            "username": "edison",
+                            "password": "Ed1son.MQ#",
+                            "publishData" : [ "MySlider" ]
+                        }                        
+                    }                    
+                ]                
+            }
+        },
+        "bottomBar": {
+            "TabBar": {
+                "tabs": [
+                    {
+                        "Icon": {
+                            "icon": "#f015",
+                            "color": "#FFFFFF"
+                        }
+                    },
+                    {
+                        "Icon": {
+                            "icon": "#f005",
+                            "color": "#FFFFFF"
+                        }
+                    },
+                    {
+                        "Icon": {
+                            "icon": "#f007",
+                            "color": "#FFFFFF"
+                        }
+                    }
+                ]
+            }
+        }                    
+    }
+}

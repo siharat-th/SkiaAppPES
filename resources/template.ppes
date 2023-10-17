@@ -1,0 +1,99 @@
+#PPES
+Appname=PESLib
+Codename=PESEngine
+Version=5.00 Beta
+numLayer=1
+BackgroundWidth=100
+BackgroundHeight=100
+
+LayerId=0
+type=5
+text=00:00:00
+fontIndex=0
+fontSizeIndex=0
+colorIndex=11
+baselineIndex=0
+radiusValue=-1.00
+angleValue=-1.00
+extraLetterSpace=0
+extraSpace=0
+locked=0
+visible=1
+centerx=0
+centery=0
+convertToStitch=0
+strokeType=0
+strokeTypeIndex=0
+strokeRunPitch=1.00
+strokeWidth=1.00
+strokeDensity=2.50
+strokeRunningInset=0.00
+strokeJoinType=0
+strokeJoinTypeIndex=0
+isCubicSuperPath=0
+isPPEFPath=1
+isTTFPath=0
+motif.size=2.50
+motif.spacing=0.00
+motif.runPitch=5.00
+motif.patternIndex=0
+motif.patternName=motif001
+fillType=4
+fillTypeIndex=0
+fillColorIndex=11
+fill.underlay=0
+fill.density=2.50
+fill.sewDirection=0
+fill.presetIndex=0
+patternFill.underlay=0
+patternFill.density=2.50
+patternFill.sewDirection=0
+patternFill.patternIndex=0
+patternFill.patternName=pat01
+patternFill.patternSize=8.00
+motifFill.size=2.50
+motifFill.spacing=0.00
+motifFill.rowSpacing=0.00
+motifFill.patternIndex=0
+motifFill.patternName=motif001
+byteLength=3921
+italic=0
+border=0
+pullCompensate=0.00
+fontWeight=100
+shapeIndex=0
+borderColorIndex=10
+waveMagnitude=150
+slantUpAngle=30
+slantDownAngle=30
+fadeUpSlant=10
+fadeDownSlant=10
+ppefScaleX=1.00
+ppefScaleY=1.00
+lastFontSizeIndex=0
+ppefReverseChar=0
+ppefReverseSegment=0
+borderGap=0
+borderGapY=0
+bound.x=-215.49
+bound.y=-40.93
+bound.width=430.98
+bound.height=81.87
+Tag=
+fontName=Thai001
+fontSize=8
+lastFontSize=8
+useColorFromPicker=1
+rotateDegree=0.00
+
+[PINNDATA]
+<svg x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<path d=" M-188.689,40.9333 C-208.3,40.9333 -215.489,25.0681 -215.489,1.06667 C-215.489,-33.4708 -203.356,-40.9333 -188.022,-40.9333 C-169.489,-40.9333 -160.422,-29.0667 -160.422,0.266666 C-160.422,27.4784 -168.618,40.9333 -188.689,40.9333 M-188.556,28.2 C-197.649,28.2 -199.489,16.4006 -199.489,0.933334 C-199.489,-13.6006 -198.703,-28.4 -188.289,-28.4 C-178.156,-28.4 -176.556,-15.2051 -176.556,0.400002 C-176.689,12.6667 -177.342,28.2 -188.556,28.2" fill="none" stroke="#0000ff" stroke-width="2" stroke-opacity="1" visibility="visible" fill-type="0" />
+	<path d=" M-125.667,40.9333 C-145.278,40.9333 -152.467,25.0681 -152.467,1.06667 C-152.467,-33.4708 -140.334,-40.9333 -125,-40.9333 C-106.466,-40.9333 -97.4001,-29.0667 -97.4001,0.266666 C-97.4001,27.4784 -105.596,40.9333 -125.667,40.9333 M-125.533,28.2 C-134.626,28.2 -136.467,16.4006 -136.467,0.933334 C-136.467,-13.6006 -135.68,-28.4 -125.267,-28.4 C-115.133,-28.4 -113.533,-15.2051 -113.533,0.400002 C-113.667,12.6667 -114.32,28.2 -125.533,28.2" fill="none" stroke="#0000ff" stroke-width="2" stroke-opacity="1" visibility="visible" fill-type="0" />
+	<path d=" M-87.849,-18.6575 L-87.849,-2.49745 M-71.3156,-18.6575 L-71.2089,-2.55078 M-87.7156,22.4092 L-87.7156,38.5692 M-71.1823,22.4092 L-71.0756,38.5159" fill="none" stroke="#0000ff" stroke-width="2" stroke-opacity="1" visibility="visible" fill-type="0" />
+	<path d=" M-32.2445,40.9333 C-51.856,40.9333 -59.0445,25.0681 -59.0445,1.06667 C-59.0445,-33.4708 -46.9117,-40.9333 -31.5778,-40.9333 C-13.044,-40.9333 -3.97778,-29.0667 -3.97778,0.266666 C-3.97778,27.4784 -12.1739,40.9333 -32.2445,40.9333 M-32.1111,28.2 C-41.2041,28.2 -43.0445,16.4006 -43.0445,0.933334 C-43.0445,-13.6006 -42.2581,-28.4 -31.8445,-28.4 C-21.7111,-28.4 -20.1111,-15.2051 -20.1111,0.400002 C-20.2445,12.6667 -20.8973,28.2 -32.1111,28.2" fill="none" stroke="#0000ff" stroke-width="2" stroke-opacity="1" visibility="visible" fill-type="0" />
+	<path d=" M30.7778,40.9333 C11.1663,40.9333 3.9778,25.0681 3.9778,1.06667 C3.9778,-33.4708 16.1105,-40.9333 31.4445,-40.9333 C49.9783,-40.9333 59.0444,-29.0667 59.0444,0.266666 C59.0444,27.4784 50.8483,40.9333 30.7778,40.9333 M30.9111,28.2 C21.8182,28.2 19.9778,16.4006 19.9778,0.933334 C19.9778,-13.6006 20.7641,-28.4 31.1778,-28.4 C41.3111,-28.4 42.9111,-15.2051 42.9111,0.400002 C42.7778,12.6667 42.1249,28.2 30.9111,28.2" fill="none" stroke="#0000ff" stroke-width="2" stroke-opacity="1" visibility="visible" fill-type="0" />
+	<path d=" M68.5956,-18.6575 L68.5956,-2.49745 M85.129,-18.6575 L85.2356,-2.55078 M68.7289,22.4092 L68.7289,38.5692 M85.2623,22.4092 L85.3689,38.5159" fill="none" stroke="#0000ff" stroke-width="2" stroke-opacity="1" visibility="visible" fill-type="0" />
+	<path d=" M124.2,40.9333 C104.589,40.9333 97.4001,25.0681 97.4001,1.06667 C97.4001,-33.4708 109.533,-40.9333 124.867,-40.9333 C143.401,-40.9333 152.467,-29.0667 152.467,0.266666 C152.467,27.4784 144.271,40.9333 124.2,40.9333 M124.333,28.2 C115.24,28.2 113.4,16.4006 113.4,0.933334 C113.4,-13.6006 114.186,-28.4 124.6,-28.4 C134.733,-28.4 136.333,-15.2051 136.333,0.400002 C136.2,12.6667 135.547,28.2 124.333,28.2" fill="none" stroke="#0000ff" stroke-width="2" stroke-opacity="1" visibility="visible" fill-type="0" />
+	<path d=" M187.222,40.9333 C167.611,40.9333 160.422,25.0681 160.422,1.06667 C160.422,-33.4708 172.555,-40.9333 187.889,-40.9333 C206.423,-40.9333 215.489,-29.0667 215.489,0.266666 C215.489,27.4784 207.293,40.9333 187.222,40.9333 M187.356,28.2 C178.263,28.2 176.422,16.4006 176.422,0.933334 C176.422,-13.6006 177.209,-28.4 187.622,-28.4 C197.756,-28.4 199.356,-15.2051 199.356,0.400002 C199.222,12.6667 198.569,28.2 187.356,28.2" fill="none" stroke="#0000ff" stroke-width="2" stroke-opacity="1" visibility="visible" fill-type="0" />
+</svg>

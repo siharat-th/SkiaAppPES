@@ -1,0 +1,92 @@
+declare_args() {
+}
+
+import("../third_party.gni")
+
+third_party("potrace") {
+  public_include_dirs = [ 
+    "./include",
+  ]
+
+  include_dirs = [ 
+    "./include",
+    "./src",
+  ]
+
+  cflags = [
+    "-Wno-return-type",
+  ]
+
+  sources = [
+    "./include/config.h",
+    "./include/potracelib.h",
+    # ./src/backend_dxf.c",
+    # "./src/backend_eps.c",
+    # "./src/backend_geojson.c",
+    # "./src/backend_pdf.c",
+    # "./src/backend_pgm.c",
+    # "./src/backend_svg.c",
+    # "./src/backend_xfig.c",
+    "./src/bbox.c",
+    "./src/bitmap_io.c",
+    "./src/curve.c",
+    "./src/decompose.c",
+    "./src/flate.c",
+    "./src/greymap.c",
+    "./src/lzw.c",
+    "./src/potracelib.c",
+    "./src/progress_bar.c",
+    "./src/render.c",
+    "./src/trace.c",
+    "./src/trans.c",
+  ]
+  defines = []
+  libs = []
+
+  #MSVC builds
+  if(is_win && !is_clang) {
+    result_filtered = filter_include(cflags, [ "-Wno-return-type" ])
+    cflags -= result_filtered
+    
+    #msvc compile error C4716 must return a value
+    cflags += [ "/wd4716", ]
+  }
+  else {
+    #cflags += [
+    #]
+  }
+
+
+  if (is_win) {
+    defines = [ "_USE_MATH_DEFINES" ]
+    #defines += [ "DEBUG" ]
+  }
+
+  if (is_linux) {
+    sources += [
+    ]
+    defines += [
+    ]
+    libs += [
+    ]
+  }
+
+  if (is_mac) {
+    sources += [
+    ]
+    defines += [
+    ]
+    frameworks = [
+    ]
+  }
+
+  if (is_ios) {
+    sources += [
+    ]
+    cflags_objc = [ "-fobjc-arc" ]
+    defines += [
+    ]
+    libs += [
+    ]
+  }
+}

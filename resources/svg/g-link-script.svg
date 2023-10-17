@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1800" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <text y="18" x="742" id="right_top">right-top</text>
+ <rect y="50" x="50" width="700" height="50" fill-opacity="0.05"/>
+ <text y="62" x="50" id="example1">example1</text>
+ <rect y="125" x="50" width="700" height="50" fill-opacity="0.05"/>
+ <text y="137" x="60" id="example2">example2</text>
+ <g xlink:href="#example3">
+  <rect y="200" x="50" width="700" fill-opacity="0.1" height="50"/>
+  <text y="230" x="169" fill="blue">example3</text>
+ </g>
+ <g xlink:href="#example4">
+  <rect y="275" x="50" width="700" fill-opacity="0.1" height="50"/>
+  <text y="305" x="169" fill="blue">example4</text>
+ </g>
+ <g xlink:href="#left_bottom">
+  <rect y="350" x="50" width="700" fill-opacity="0.1" height="50"/>
+  <text y="380" x="175" fill="blue">left-bottom</text>
+ </g>
+ 
+ <rect y="900" x="50" width="700" height="50" fill-opacity="0.05"/>
+ <text y="912" x="70" id="example3">example3</text>
+ <rect y="975" x="50" width="700" height="50" fill-opacity="0.05"/>
+ <text y="987" x="80" id="example4">example4</text>
+ <g xlink:href="#example1">
+  <rect y="1050" x="50" width="700" fill-opacity="0.1" height="50"/>
+  <text y="1080" x="169" fill="blue">example1</text>
+ </g>
+ <g xlink:href="#example2">
+  <rect y="1125" x="50" width="700" fill-opacity="0.1" height="50"/>
+  <text y="1155" x="169" fill="blue">example2</text>
+ </g>
+ <g xlink:href="https://google.com">
+  <rect y="1200" x="50" width="700" fill-opacity="0.1" height="50"/>
+  <text y="1230" x="145" fill="blue">https://google.com</text>
+ </g>
+ <g xlink:href="#right_top">
+  <rect y="1725" x="50" width="700" fill-opacity="0.1" height="50"/>
+  <text y="1755" x="170" fill="blue">right-top</text>
+ </g>
+ 
+ <text y="1799" x="0" id="left_bottom">left-bottom</text>
+
+<script type="text/javascript" charset="utf-8">
+<![CDATA[
+let fnonclick = (e) => e.onclick = (event) => (event.preventDefault(),v=e.attributes["xlink:href"].value, v && v[0]=="#"? [...document.querySelectorAll(v)].map(e=>e.getBoundingClientRect()).map(({x, y})=>({pageLeft:pL, pageTop:pT}=window.visualViewport, window.scrollTo(pL+x, pT+y) )) : document.location.href=v,false);
+
+//select all svg a-tag(exclude html a-tag) without global-link 
+let alinks = [...document.querySelectorAll('a[*|href^="#"]:not([href])')];
+alinks.map(e=>e.style.cursor='pointer');
+alinks.map(fnonclick);
+
+//select all svg g-tag(exclude html a-tag) with link
+let glinks = [...document.querySelectorAll('g[*|href]:not([href])')];
+glinks.map(e=>e.style.cursor='pointer');
+glinks.map(fnonclick);
+]]>
+</script>
+</svg>

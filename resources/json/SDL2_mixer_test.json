@@ -1,0 +1,237 @@
+{
+    "Widget": {
+        "backgroundColor": "#FFFF00",
+        "alpha": 0,
+        "children": [
+            {
+                "MQTT" : {
+                    "addr": "dev.pandahut.co",
+                    "port": "1883",
+                    "topic": "test",
+                    "username": "edison",
+                    "password": "Ed1son.MQ#",
+                    "publishData" : [ "MySlider" ]
+                }
+            },
+            {
+                "Mixer" : {
+                    "music" : [
+                        "resources/sounds/beat.wav"
+                    ],
+                    "samples" : [
+                        "resources/sounds/beat.wav",
+                        "resources/sounds/scratch.wav",
+                        "resources/sounds/high.wav",
+                        "resources/sounds/medium.wav",
+                        "resources/sounds/low.wav",
+                        "resources/sounds/loop_0.wav",
+                        "resources/sounds/loop_1.wav",
+                        "resources/sounds/loop_2.wav",
+                        "resources/sounds/loop_3.wav",
+                        "resources/sounds/loop_4.wav",
+                        "resources/sounds/loop_5.wav"
+                    ]
+                }
+            },
+            {
+                "Row" : {
+                    "x" : 20,
+                    "y" : 20,
+                    "width": 180,
+                    "height": 0,
+                    "border" : 1,
+                    "padding" : 20,
+                    "gap" :10,
+                    "children" : [
+                        {
+                            "Text" : {
+                                "text": "Sound",
+                                "width": -1
+                            }
+                        },
+                        {
+                            "Button" : {
+                                "title" : "Beat",
+                                "border": 2,
+                                "width":-1,
+                                "padding" :5,
+                                "borderRadius": 8,
+                                "commandPressed": "PlaySound",
+                                "tag" : 0
+                            }
+                        },
+                        {
+                            "Widget" : {
+                                "height": 20
+                            }
+                        },
+                        {
+                            "Button" : {
+                                "title" : "Scatch",
+                                "border": 2,
+                                "width":-1,
+                                "padding" :5,
+                                "borderRadius": 8,
+                                "commandPressed": "PlaySound",
+                                "tag" : 1
+                            }
+                        },
+                        {
+                            "Button" : {
+                                "title" : "High",
+                                "border": 2,
+                                "width":-1,
+                                "padding" :5,
+                                "borderRadius": 8,
+                                "commandPressed": "PlaySound",
+                                "tag" : 2
+                            }
+                        },
+                        {
+                            "Button" : {
+                                "title" : "Medium",
+                                "border": 2,
+                                "width":-1,
+                                "padding" :5,
+                                "borderRadius": 8,
+                                "commandPressed": "PlaySound",
+                                "tag" : 3
+                            }
+                        },
+                        {
+                            "Button" : {
+                                "title" : "Low",
+                                "border": 2,
+                                "width":-1,
+                                "padding" :5,
+                                "borderRadius": 8,
+                                "commandPressed": "PlaySound",
+                                "tag" : 4
+                            }
+                        }
+
+
+                    ]
+                }
+            },
+            {
+                "Row" : {
+                    "x" : 220,
+                    "y" : 20,
+                    "width": 180,
+                    "height": 0,
+                    "border" : 1,
+                    "padding" : 20,
+                    "gap" :10,
+                    "children" : [
+                        {
+                            "Text" : {
+                                "text": "Music",
+                                "width": -1
+                            }
+                        },                        
+                        {
+                            "Button" : {
+                                "title" : "Play Music",
+                                "border": 2,
+                                "width":-1,
+                                "padding" :5,
+                                "borderRadius": 8,
+                                "commandPressed": "PlayMusic",
+                                "tag" : 0
+                            }
+                        },
+                        {
+                            "Button" : {
+                                "title" : "Pause/Resume",
+                                "border": 2,
+                                "width":-1,
+                                "padding" :5,
+                                "borderRadius": 8,
+                                "commandPressed": "PauseResumeMusic",
+                                "tag" : 0
+                            }
+                        },
+                        {
+                            "Button" : {
+                                "title" : "Stop Music",
+                                "border": 2,
+                                "width":-1,
+                                "padding" :5,
+                                "borderRadius": 8,
+                                "commandPressed": "StopMusic",
+                                "tag" : 0
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "Row" : {
+                    "x" : 420,
+                    "y" : 20,
+                    "width": 180,
+                    "height": 0,
+                    "border" : 1,
+                    "padding" : 20,
+                    "gap" :10,
+                    "children" : [
+                        {
+                            "Text" : {
+                                "text": "Volume",
+                                "width": -1
+                            }
+                        },
+                        {
+                            "Slider" : {
+                                "height": 32,
+                                "data": "Volume0"
+                            }
+                        },
+                        {
+                            "Slider" : {
+                                "height": 32,
+                                "data": "Volume1"
+                            }
+                        },
+                        {
+                            "Slider" : {
+                                "height": 32,
+                                "data": "Volume2"
+                            }
+                        },
+                        {
+                            "Slider" : {
+                                "height": 32,
+                                "data": "Volume3"
+                            }
+                        },
+                        {
+                            "Slider" : {
+                                "height": 32,
+                                "data": "Volume4"
+                            }
+                        },
+                        {
+                            "Slider" : {
+                                "height": 32,
+                                "data": "Volume5"
+                            }
+                        },
+                        {
+                            "Widget" : {
+                                "height": 20
+                            }
+                        },   
+                        {
+                            "Slider" : {
+                                "height": 32,
+                                "data": "Velocity"
+                            }
+                        }                                             
+                    ]
+                }
+            }            
+        ]
+    }
+}

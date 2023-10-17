@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="a" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="1.96in" height="1.57in" viewBox="0 0 141.45 113.1">
+  <rect x=".14" y=".14" width="141.17" height="112.82" style="fill: none; stroke: blue; stroke-miterlimit: 1.13; stroke-width: .28px;"/>
+  <line x1="28.2" y1="56.55" x2="28.2" y2="28.2" style="fill: none; stroke: #888; stroke-miterlimit: 1.13; stroke-width: .57px;"/>
+  <line x1="70.72" y1="28.2" x2="70.72" y2="56.55" style="fill: none; stroke: #888; stroke-miterlimit: 1.13; stroke-width: .57px;"/>
+  <line x1="70.72" y1="56.55" x2="70.72" y2="84.9" style="fill: none; stroke: #888; stroke-miterlimit: 1.13; stroke-width: .57px;"/>
+  <line x1="113.24" y1="84.9" x2="113.24" y2="56.55" style="fill: none; stroke: #888; stroke-miterlimit: 1.13; stroke-width: .57px;"/>
+  <path d="M28.2,56.55c0-28.35,42.52-28.35,42.52,0s42.52,28.35,42.52,0" style="fill: none; stroke: red; stroke-miterlimit: 1.13; stroke-width: 1.42px;"/>
+  <circle cx="28.2" cy="56.55" r="2.83" style="fill: none; stroke: #888; stroke-miterlimit: 1.13; stroke-width: .57px;"/>
+  <circle cx="70.72" cy="56.55" r="2.83" style="fill: none; stroke: #888; stroke-miterlimit: 1.13; stroke-width: .57px;"/>
+  <circle cx="113.24" cy="56.55" r="2.83" style="fill: none; stroke: #888; stroke-miterlimit: 1.13; stroke-width: .57px;"/>
+  <circle cx="28.2" cy="28.2" r="2.83" style="fill: #888;"/>
+  <circle cx="70.72" cy="28.2" r="2.83" style="fill: #888;"/>
+  <circle cx="113.24" cy="84.9" r="2.83" style="fill: #888;"/>
+  <circle cx="70.72" cy="84.9" r="2.55" style="fill: none; stroke: blue; stroke-miterlimit: 1.13; stroke-width: 1.13px;"/>
+  <text transform="translate(6.94 19.7)" style="font-family: Verdana, Verdana; font-size: 6.24px; isolation: isolate;"><tspan x="0" y="0">M100,200 C100,100 250,100 250,200</tspan></text>
+  <text transform="translate(62.7 99.07)" style="font-family: Verdana, Verdana; font-size: 6.24px; isolation: isolate;"><tspan x="0" y="0">S400,300 400,200</tspan></text>
+</svg>

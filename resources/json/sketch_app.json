@@ -1,0 +1,85 @@
+{
+    "Scaffold": {
+        "appBar": {
+            "AppBar": {
+                "leading": [
+                    {
+                        "Button": {
+                            "icon": "#f0c9",
+                            "color": "#FFFFFF"
+                        }
+                    }
+                ],
+                "title": "SketchApp",
+                "actions": [
+                    {
+                        "Icon": {
+                            "icon": "#f002",
+                            "color": "#FFFFFF"
+                        }
+                    },
+                    {
+                        "Icon": {
+                            "icon": "#f142",
+                            "width": 32,
+                            "color": "#FFFFFF"
+                        }
+                    }
+                ]
+            }
+        },
+        "body": {
+            "Widget": {
+                "backgroundColor": "#FFFFFF",
+                "padding": 10,
+                "alpha": 1,
+                "children": [
+                    {
+                        "Center": {
+                            "alpha": 0,
+                            "children": [
+                                {
+                                    
+                                }
+                            ]
+                        }
+                    }
+                                    
+                ]                
+            }
+        },
+        "bottomBar": {
+            "TabBar": {
+                "tabs": [
+                    {
+                        "Button": {
+                            "id": "pencil",
+                            "icon": "#f303",
+                            "color": "#FFFFFF",
+                            "title": "",
+                            "command": "stroke"
+                        }
+                    },
+                    {
+                        "Button": {
+                            "id": "paintbucket",
+                            "icon": "#f576",
+                            "color": "#FFFFFF",
+                            "title": "",
+                            "command": "fill"
+                        }
+                    },
+                    {
+                        " Button": {
+                            "id": "eraser",
+                            "icon": "#f12d",
+                            "color": "#FFFFFF",
+                            "title": "",
+                            "command": "erase"
+                        }
+                    }
+                ]
+            }
+        }                    
+    }
+}

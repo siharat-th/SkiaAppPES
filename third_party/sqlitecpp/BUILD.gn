@@ -1,0 +1,80 @@
+declare_args() {
+}
+
+import("../third_party.gni")
+
+third_party("sqlitecpp") {
+  public_include_dirs = [ 
+    "./include",
+    "./include/SQLiteCpp",
+    "./sqlite3",
+  ]
+
+  include_dirs = [ 
+    "./include",
+    "./include/SQLiteCpp",
+    "./sqlite3",
+  ]
+
+  cflags = [
+    "-Wno-return-type",
+  ]
+
+  sources = [
+    "./sqlite3/sqlite3.c",
+    "./src/Backup.cpp",
+    "./src/Column.cpp",
+    "./src/Database.cpp",
+    "./src/Exception.cpp",
+    "./src/Statement.cpp",
+    "./src/Transaction.cpp",
+  ]
+  defines = []
+  libs = []
+
+  if (is_win) {
+    if(!defined(cflags)) {
+      cflags = []
+    }
+
+    if(!defined(defines)) {
+      defines = []
+    }
+
+    #MSVC builds
+    if(is_win && !is_clang) {
+      result_filtered = filter_include(cflags, [ "-Wno-return-type" ])
+      cflags -= result_filtered
+    }
+
+    #defines += [ "DEBUG" ]
+  }
+
+  if (is_linux) {
+    sources += [
+    ]
+    defines += [
+    ]
+    libs += [
+    ]
+  }
+
+  if (is_mac) {
+    sources += [
+    ]
+    defines += [
+    ]
+    frameworks = [
+    ]
+  }
+
+  if (is_ios) {
+    sources += [
+    ]
+    cflags_objc = [ "-fobjc-arc" ]
+    defines += [
+    ]
+    libs += [
+    ]
+  }
+}

@@ -1,0 +1,684 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FE4CF54123FD796D0088F432 /* pesEMBClassify.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE4CF53F23FD796D0088F432 /* pesEMBClassify.cpp */; };
+		FE4CF54223FD796D0088F432 /* pesEMBClassify.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE4CF54023FD796D0088F432 /* pesEMBClassify.hpp */; };
+		FE7EB9E527673167009C91E6 /* json.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE7EB9E427673167009C91E6 /* json.hpp */; };
+		FE80A9F423499B030076167D /* pesPathUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9DC23499B020076167D /* pesPathUtility.cpp */; };
+		FE80A9F523499B030076167D /* pesCubicSuperPath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9DD23499B020076167D /* pesCubicSuperPath.cpp */; };
+		FE80A9F623499B030076167D /* pugixml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9DE23499B020076167D /* pugixml.cpp */; };
+		FE80A9F723499B030076167D /* pesDocument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9DF23499B020076167D /* pesDocument.cpp */; };
+		FE80A9F823499B030076167D /* pesData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9E023499B020076167D /* pesData.cpp */; };
+		FE80A9F923499B030076167D /* pesClipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9E123499B020076167D /* pesClipper.cpp */; };
+		FE80A9FA23499B030076167D /* pesPolyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9E223499B020076167D /* pesPolyline.cpp */; };
+		FE80A9FB23499B030076167D /* pesStitchBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9E323499B020076167D /* pesStitchBlock.cpp */; };
+		FE80A9FC23499B030076167D /* pesVec2f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9E423499B020076167D /* pesVec2f.cpp */; };
+		FE80A9FD23499B030076167D /* pesSVG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9E523499B020076167D /* pesSVG.cpp */; };
+		FE80A9FE23499B030076167D /* pesEMBFill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9E623499B020076167D /* pesEMBFill.cpp */; };
+		FE80A9FF23499B030076167D /* pesMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9E723499B020076167D /* pesMath.cpp */; };
+		FE80AA0023499B030076167D /* pesRectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9E823499B020076167D /* pesRectangle.cpp */; };
+		FE80AA0123499B030076167D /* pesAutoBranch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9E923499B020076167D /* pesAutoBranch.cpp */; };
+		FE80AA0223499B030076167D /* pesSatinOutline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9EA23499B020076167D /* pesSatinOutline.cpp */; };
+		FE80AA0323499B030076167D /* pesGcode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9EB23499B020076167D /* pesGcode.cpp */; };
+		FE80AA0423499B030076167D /* pesEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9EC23499B020076167D /* pesEffect.cpp */; };
+		FE80AA0523499B030076167D /* pesSatinColumn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9ED23499B020076167D /* pesSatinColumn.cpp */; };
+		FE80AA0623499B030076167D /* pesUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9EE23499B030076167D /* pesUtility.cpp */; };
+		FE80AA0723499B030076167D /* clipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9EF23499B030076167D /* clipper.cpp */; };
+		FE80AA0823499B030076167D /* pesEncoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9F023499B030076167D /* pesEncoder.cpp */; };
+		FE80AA0923499B030076167D /* pesBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9F123499B030076167D /* pesBuffer.cpp */; };
+		FE80AA0A23499B030076167D /* pesColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9F223499B030076167D /* pesColor.cpp */; };
+		FE80AA0B23499B030076167D /* pesPath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE80A9F323499B030076167D /* pesPath.cpp */; };
+		FE80AA2923499B340076167D /* pesStitchBlock.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA0D23499B320076167D /* pesStitchBlock.hpp */; };
+		FE80AA2A23499B340076167D /* pesSatinColumn.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA0E23499B320076167D /* pesSatinColumn.hpp */; };
+		FE80AA2B23499B340076167D /* pesGcode.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA0F23499B320076167D /* pesGcode.hpp */; };
+		FE80AA2C23499B340076167D /* pesVec2f.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1023499B320076167D /* pesVec2f.hpp */; };
+		FE80AA2D23499B340076167D /* pesVec3f.h in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1123499B320076167D /* pesVec3f.h */; };
+		FE80AA2E23499B340076167D /* pesBuffer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1223499B320076167D /* pesBuffer.hpp */; };
+		FE80AA2F23499B340076167D /* pugiconfig.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1323499B320076167D /* pugiconfig.hpp */; };
+		FE80AA3023499B340076167D /* clipper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1423499B320076167D /* clipper.hpp */; };
+		FE80AA3123499B340076167D /* pesPath.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1523499B320076167D /* pesPath.hpp */; };
+		FE80AA3223499B340076167D /* pesPolyline.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1623499B320076167D /* pesPolyline.hpp */; };
+		FE80AA3323499B340076167D /* pesEffect.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1723499B320076167D /* pesEffect.hpp */; };
+		FE80AA3423499B340076167D /* pesClipper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1823499B330076167D /* pesClipper.hpp */; };
+		FE80AA3523499B340076167D /* pesUtility.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1923499B330076167D /* pesUtility.hpp */; };
+		FE80AA3623499B340076167D /* pesEMBFill.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1A23499B330076167D /* pesEMBFill.hpp */; };
+		FE80AA3723499B340076167D /* pesSatinOutline.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1B23499B330076167D /* pesSatinOutline.hpp */; };
+		FE80AA3823499B340076167D /* pesPathUtility.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1C23499B330076167D /* pesPathUtility.hpp */; };
+		FE80AA3923499B340076167D /* pugixml.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1D23499B330076167D /* pugixml.hpp */; };
+		FE80AA3A23499B340076167D /* pesDocument.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1E23499B330076167D /* pesDocument.hpp */; };
+		FE80AA3B23499B340076167D /* pesColor.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA1F23499B330076167D /* pesColor.hpp */; };
+		FE80AA3C23499B340076167D /* pesCubicSuperPath.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA2023499B330076167D /* pesCubicSuperPath.hpp */; };
+		FE80AA3D23499B340076167D /* pesEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA2123499B330076167D /* pesEngine.h */; };
+		FE80AA3E23499B340076167D /* pesSVGTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA2223499B330076167D /* pesSVGTypes.h */; };
+		FE80AA3F23499B340076167D /* pesData.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA2323499B330076167D /* pesData.hpp */; };
+		FE80AA4023499B340076167D /* pesRectangle.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA2423499B340076167D /* pesRectangle.hpp */; };
+		FE80AA4123499B340076167D /* pesSVG.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA2523499B340076167D /* pesSVG.hpp */; };
+		FE80AA4223499B340076167D /* pesAutoBranch.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA2623499B340076167D /* pesAutoBranch.hpp */; };
+		FE80AA4323499B340076167D /* pesMath.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA2723499B340076167D /* pesMath.hpp */; };
+		FE80AA4423499B340076167D /* pesEncoder.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FE80AA2823499B340076167D /* pesEncoder.hpp */; };
+		FE884F522400A5F900B47A5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE884F512400A5F900B47A5E /* main.cpp */; };
+		FE884F572400A86B00B47A5E /* libpesEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2E54D722CB33A800076ED7 /* libpesEngine.a */; };
+		FE884F5A2400A93600B47A5E /* pesEMBClassify.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FE4CF53F23FD796D0088F432 /* pesEMBClassify.cpp */; };
+		FE8BE5BB27C75A0A00B3614F /* pesSkPath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEBA113627C6A0DE00F37BFF /* pesSkPath.cpp */; };
+		FEAA275A2362572F00174E2B /* utf8.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAA27562362572F00174E2B /* utf8.h */; };
+		FEAA275B2362572F00174E2B /* core.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAA27572362572F00174E2B /* core.h */; };
+		FEAA275C2362572F00174E2B /* checked.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAA27582362572F00174E2B /* checked.h */; };
+		FEAA275D2362572F00174E2B /* unchecked.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAA27592362572F00174E2B /* unchecked.h */; };
+		FEAA275F23625A1000174E2B /* UnicodeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = FEAA275E23625A0F00174E2B /* UnicodeHelper.h */; };
+		FEAA276123625A1C00174E2B /* UnicodeHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEAA276023625A1C00174E2B /* UnicodeHelper.cpp */; };
+		FEBA113527C6A00400F37BFF /* pesSkPath.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FEBA113427C6A00400F37BFF /* pesSkPath.hpp */; };
+		FEBA113727C6A0DE00F37BFF /* pesSkPath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FEBA113627C6A0DE00F37BFF /* pesSkPath.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FE884F582400A87500B47A5E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE2E54CF22CB33A700076ED7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FE2E54D622CB33A800076ED7;
+			remoteInfo = pesEngine;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FE884F4D2400A5F900B47A5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FE2E54D722CB33A800076ED7 /* libpesEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libpesEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE4CF53F23FD796D0088F432 /* pesEMBClassify.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pesEMBClassify.cpp; sourceTree = "<group>"; };
+		FE4CF54023FD796D0088F432 /* pesEMBClassify.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = pesEMBClassify.hpp; sourceTree = "<group>"; };
+		FE7EB9E427673167009C91E6 /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
+		FE80A9DC23499B020076167D /* pesPathUtility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesPathUtility.cpp; sourceTree = "<group>"; };
+		FE80A9DD23499B020076167D /* pesCubicSuperPath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesCubicSuperPath.cpp; sourceTree = "<group>"; };
+		FE80A9DE23499B020076167D /* pugixml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pugixml.cpp; sourceTree = "<group>"; };
+		FE80A9DF23499B020076167D /* pesDocument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesDocument.cpp; sourceTree = "<group>"; };
+		FE80A9E023499B020076167D /* pesData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesData.cpp; sourceTree = "<group>"; };
+		FE80A9E123499B020076167D /* pesClipper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesClipper.cpp; sourceTree = "<group>"; };
+		FE80A9E223499B020076167D /* pesPolyline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesPolyline.cpp; sourceTree = "<group>"; };
+		FE80A9E323499B020076167D /* pesStitchBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesStitchBlock.cpp; sourceTree = "<group>"; };
+		FE80A9E423499B020076167D /* pesVec2f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesVec2f.cpp; sourceTree = "<group>"; };
+		FE80A9E523499B020076167D /* pesSVG.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesSVG.cpp; sourceTree = "<group>"; };
+		FE80A9E623499B020076167D /* pesEMBFill.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesEMBFill.cpp; sourceTree = "<group>"; };
+		FE80A9E723499B020076167D /* pesMath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesMath.cpp; sourceTree = "<group>"; };
+		FE80A9E823499B020076167D /* pesRectangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesRectangle.cpp; sourceTree = "<group>"; };
+		FE80A9E923499B020076167D /* pesAutoBranch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesAutoBranch.cpp; sourceTree = "<group>"; };
+		FE80A9EA23499B020076167D /* pesSatinOutline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesSatinOutline.cpp; sourceTree = "<group>"; };
+		FE80A9EB23499B020076167D /* pesGcode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesGcode.cpp; sourceTree = "<group>"; };
+		FE80A9EC23499B020076167D /* pesEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesEffect.cpp; sourceTree = "<group>"; };
+		FE80A9ED23499B020076167D /* pesSatinColumn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesSatinColumn.cpp; sourceTree = "<group>"; };
+		FE80A9EE23499B030076167D /* pesUtility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesUtility.cpp; sourceTree = "<group>"; };
+		FE80A9EF23499B030076167D /* clipper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clipper.cpp; sourceTree = "<group>"; };
+		FE80A9F023499B030076167D /* pesEncoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesEncoder.cpp; sourceTree = "<group>"; };
+		FE80A9F123499B030076167D /* pesBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesBuffer.cpp; sourceTree = "<group>"; };
+		FE80A9F223499B030076167D /* pesColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesColor.cpp; sourceTree = "<group>"; };
+		FE80A9F323499B030076167D /* pesPath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesPath.cpp; sourceTree = "<group>"; };
+		FE80AA0D23499B320076167D /* pesStitchBlock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesStitchBlock.hpp; sourceTree = "<group>"; };
+		FE80AA0E23499B320076167D /* pesSatinColumn.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesSatinColumn.hpp; sourceTree = "<group>"; };
+		FE80AA0F23499B320076167D /* pesGcode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesGcode.hpp; sourceTree = "<group>"; };
+		FE80AA1023499B320076167D /* pesVec2f.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesVec2f.hpp; sourceTree = "<group>"; };
+		FE80AA1123499B320076167D /* pesVec3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pesVec3f.h; sourceTree = "<group>"; };
+		FE80AA1223499B320076167D /* pesBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesBuffer.hpp; sourceTree = "<group>"; };
+		FE80AA1323499B320076167D /* pugiconfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pugiconfig.hpp; sourceTree = "<group>"; };
+		FE80AA1423499B320076167D /* clipper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = clipper.hpp; sourceTree = "<group>"; };
+		FE80AA1523499B320076167D /* pesPath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesPath.hpp; sourceTree = "<group>"; };
+		FE80AA1623499B320076167D /* pesPolyline.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesPolyline.hpp; sourceTree = "<group>"; };
+		FE80AA1723499B320076167D /* pesEffect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesEffect.hpp; sourceTree = "<group>"; };
+		FE80AA1823499B330076167D /* pesClipper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesClipper.hpp; sourceTree = "<group>"; };
+		FE80AA1923499B330076167D /* pesUtility.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesUtility.hpp; sourceTree = "<group>"; };
+		FE80AA1A23499B330076167D /* pesEMBFill.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesEMBFill.hpp; sourceTree = "<group>"; };
+		FE80AA1B23499B330076167D /* pesSatinOutline.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesSatinOutline.hpp; sourceTree = "<group>"; };
+		FE80AA1C23499B330076167D /* pesPathUtility.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesPathUtility.hpp; sourceTree = "<group>"; };
+		FE80AA1D23499B330076167D /* pugixml.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pugixml.hpp; sourceTree = "<group>"; };
+		FE80AA1E23499B330076167D /* pesDocument.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesDocument.hpp; sourceTree = "<group>"; };
+		FE80AA1F23499B330076167D /* pesColor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesColor.hpp; sourceTree = "<group>"; };
+		FE80AA2023499B330076167D /* pesCubicSuperPath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesCubicSuperPath.hpp; sourceTree = "<group>"; };
+		FE80AA2123499B330076167D /* pesEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pesEngine.h; sourceTree = "<group>"; };
+		FE80AA2223499B330076167D /* pesSVGTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pesSVGTypes.h; sourceTree = "<group>"; };
+		FE80AA2323499B330076167D /* pesData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesData.hpp; sourceTree = "<group>"; };
+		FE80AA2423499B340076167D /* pesRectangle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesRectangle.hpp; sourceTree = "<group>"; };
+		FE80AA2523499B340076167D /* pesSVG.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesSVG.hpp; sourceTree = "<group>"; };
+		FE80AA2623499B340076167D /* pesAutoBranch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesAutoBranch.hpp; sourceTree = "<group>"; };
+		FE80AA2723499B340076167D /* pesMath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesMath.hpp; sourceTree = "<group>"; };
+		FE80AA2823499B340076167D /* pesEncoder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesEncoder.hpp; sourceTree = "<group>"; };
+		FE80AA452349EE110076167D /* pes_bindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = pes_bindings.cpp; path = ../canvaskit/pes_bindings.cpp; sourceTree = "<group>"; };
+		FE884F4F2400A5F900B47A5E /* pesEngineTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pesEngineTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE884F512400A5F900B47A5E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		FEAA27562362572F00174E2B /* utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf8.h; sourceTree = "<group>"; };
+		FEAA27572362572F00174E2B /* core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
+		FEAA27582362572F00174E2B /* checked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = checked.h; sourceTree = "<group>"; };
+		FEAA27592362572F00174E2B /* unchecked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unchecked.h; sourceTree = "<group>"; };
+		FEAA275E23625A0F00174E2B /* UnicodeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnicodeHelper.h; sourceTree = "<group>"; };
+		FEAA276023625A1C00174E2B /* UnicodeHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnicodeHelper.cpp; sourceTree = "<group>"; };
+		FEBA113427C6A00400F37BFF /* pesSkPath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pesSkPath.hpp; sourceTree = "<group>"; };
+		FEBA113627C6A0DE00F37BFF /* pesSkPath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pesSkPath.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FE2E54D522CB33A800076ED7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE884F4C2400A5F900B47A5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE884F572400A86B00B47A5E /* libpesEngine.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FE2E54CE22CB33A700076ED7 = {
+			isa = PBXGroup;
+			children = (
+				FE80AA452349EE110076167D /* pes_bindings.cpp */,
+				FE80AA0C23499B110076167D /* include */,
+				FE2E54DE22CB33E600076ED7 /* src */,
+				FE884F502400A5F900B47A5E /* pesEngineTest */,
+				FE2E54D822CB33A800076ED7 /* Products */,
+				FE884F562400A86B00B47A5E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FE2E54D822CB33A800076ED7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE2E54D722CB33A800076ED7 /* libpesEngine.a */,
+				FE884F4F2400A5F900B47A5E /* pesEngineTest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE2E54DE22CB33E600076ED7 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				FEAA276023625A1C00174E2B /* UnicodeHelper.cpp */,
+				FE80A9EF23499B030076167D /* clipper.cpp */,
+				FE80A9E923499B020076167D /* pesAutoBranch.cpp */,
+				FE80A9F123499B030076167D /* pesBuffer.cpp */,
+				FE80A9E123499B020076167D /* pesClipper.cpp */,
+				FE80A9F223499B030076167D /* pesColor.cpp */,
+				FE80A9DD23499B020076167D /* pesCubicSuperPath.cpp */,
+				FE80A9E023499B020076167D /* pesData.cpp */,
+				FE80A9DF23499B020076167D /* pesDocument.cpp */,
+				FE80A9EC23499B020076167D /* pesEffect.cpp */,
+				FE80A9E623499B020076167D /* pesEMBFill.cpp */,
+				FE80A9F023499B030076167D /* pesEncoder.cpp */,
+				FE80A9EB23499B020076167D /* pesGcode.cpp */,
+				FE80A9E723499B020076167D /* pesMath.cpp */,
+				FE80A9F323499B030076167D /* pesPath.cpp */,
+				FEBA113627C6A0DE00F37BFF /* pesSkPath.cpp */,
+				FE80A9DC23499B020076167D /* pesPathUtility.cpp */,
+				FE80A9E223499B020076167D /* pesPolyline.cpp */,
+				FE80A9E823499B020076167D /* pesRectangle.cpp */,
+				FE80A9ED23499B020076167D /* pesSatinColumn.cpp */,
+				FE80A9EA23499B020076167D /* pesSatinOutline.cpp */,
+				FE80A9E323499B020076167D /* pesStitchBlock.cpp */,
+				FE80A9E523499B020076167D /* pesSVG.cpp */,
+				FE80A9EE23499B030076167D /* pesUtility.cpp */,
+				FE80A9E423499B020076167D /* pesVec2f.cpp */,
+				FE80A9DE23499B020076167D /* pugixml.cpp */,
+				FE4CF53F23FD796D0088F432 /* pesEMBClassify.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		FE80AA0C23499B110076167D /* include */ = {
+			isa = PBXGroup;
+			children = (
+				FEBA113427C6A00400F37BFF /* pesSkPath.hpp */,
+				FE7EB9E427673167009C91E6 /* json.hpp */,
+				FEAA275E23625A0F00174E2B /* UnicodeHelper.h */,
+				FEAA27582362572F00174E2B /* checked.h */,
+				FEAA27572362572F00174E2B /* core.h */,
+				FEAA27592362572F00174E2B /* unchecked.h */,
+				FEAA27562362572F00174E2B /* utf8.h */,
+				FE80AA1423499B320076167D /* clipper.hpp */,
+				FE80AA2623499B340076167D /* pesAutoBranch.hpp */,
+				FE80AA1223499B320076167D /* pesBuffer.hpp */,
+				FE80AA1823499B330076167D /* pesClipper.hpp */,
+				FE80AA1F23499B330076167D /* pesColor.hpp */,
+				FE80AA2023499B330076167D /* pesCubicSuperPath.hpp */,
+				FE80AA2323499B330076167D /* pesData.hpp */,
+				FE80AA1E23499B330076167D /* pesDocument.hpp */,
+				FE80AA1723499B320076167D /* pesEffect.hpp */,
+				FE80AA1A23499B330076167D /* pesEMBFill.hpp */,
+				FE80AA2823499B340076167D /* pesEncoder.hpp */,
+				FE80AA2123499B330076167D /* pesEngine.h */,
+				FE80AA0F23499B320076167D /* pesGcode.hpp */,
+				FE80AA2723499B340076167D /* pesMath.hpp */,
+				FE80AA1523499B320076167D /* pesPath.hpp */,
+				FE80AA1C23499B330076167D /* pesPathUtility.hpp */,
+				FE80AA1623499B320076167D /* pesPolyline.hpp */,
+				FE80AA2423499B340076167D /* pesRectangle.hpp */,
+				FE80AA0E23499B320076167D /* pesSatinColumn.hpp */,
+				FE80AA1B23499B330076167D /* pesSatinOutline.hpp */,
+				FE80AA0D23499B320076167D /* pesStitchBlock.hpp */,
+				FE80AA2523499B340076167D /* pesSVG.hpp */,
+				FE80AA2223499B330076167D /* pesSVGTypes.h */,
+				FE80AA1923499B330076167D /* pesUtility.hpp */,
+				FE80AA1023499B320076167D /* pesVec2f.hpp */,
+				FE80AA1123499B320076167D /* pesVec3f.h */,
+				FE80AA1323499B320076167D /* pugiconfig.hpp */,
+				FE80AA1D23499B330076167D /* pugixml.hpp */,
+				FE4CF54023FD796D0088F432 /* pesEMBClassify.hpp */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		FE884F502400A5F900B47A5E /* pesEngineTest */ = {
+			isa = PBXGroup;
+			children = (
+				FE884F512400A5F900B47A5E /* main.cpp */,
+			);
+			path = pesEngineTest;
+			sourceTree = "<group>";
+		};
+		FE884F562400A86B00B47A5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FE2E54D322CB33A800076ED7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE80AA4423499B340076167D /* pesEncoder.hpp in Headers */,
+				FE80AA3023499B340076167D /* clipper.hpp in Headers */,
+				FE4CF54223FD796D0088F432 /* pesEMBClassify.hpp in Headers */,
+				FE80AA3823499B340076167D /* pesPathUtility.hpp in Headers */,
+				FEAA275B2362572F00174E2B /* core.h in Headers */,
+				FE80AA2C23499B340076167D /* pesVec2f.hpp in Headers */,
+				FEBA113527C6A00400F37BFF /* pesSkPath.hpp in Headers */,
+				FE80AA3B23499B340076167D /* pesColor.hpp in Headers */,
+				FE80AA4123499B340076167D /* pesSVG.hpp in Headers */,
+				FE80AA3123499B340076167D /* pesPath.hpp in Headers */,
+				FE80AA3C23499B340076167D /* pesCubicSuperPath.hpp in Headers */,
+				FEAA275C2362572F00174E2B /* checked.h in Headers */,
+				FEAA275A2362572F00174E2B /* utf8.h in Headers */,
+				FE80AA3223499B340076167D /* pesPolyline.hpp in Headers */,
+				FE7EB9E527673167009C91E6 /* json.hpp in Headers */,
+				FE80AA2F23499B340076167D /* pugiconfig.hpp in Headers */,
+				FE80AA3923499B340076167D /* pugixml.hpp in Headers */,
+				FE80AA3D23499B340076167D /* pesEngine.h in Headers */,
+				FEAA275F23625A1000174E2B /* UnicodeHelper.h in Headers */,
+				FE80AA4323499B340076167D /* pesMath.hpp in Headers */,
+				FE80AA2E23499B340076167D /* pesBuffer.hpp in Headers */,
+				FE80AA4023499B340076167D /* pesRectangle.hpp in Headers */,
+				FE80AA3F23499B340076167D /* pesData.hpp in Headers */,
+				FE80AA2B23499B340076167D /* pesGcode.hpp in Headers */,
+				FE80AA3323499B340076167D /* pesEffect.hpp in Headers */,
+				FE80AA3A23499B340076167D /* pesDocument.hpp in Headers */,
+				FE80AA3523499B340076167D /* pesUtility.hpp in Headers */,
+				FE80AA2923499B340076167D /* pesStitchBlock.hpp in Headers */,
+				FE80AA2A23499B340076167D /* pesSatinColumn.hpp in Headers */,
+				FE80AA3623499B340076167D /* pesEMBFill.hpp in Headers */,
+				FE80AA3723499B340076167D /* pesSatinOutline.hpp in Headers */,
+				FE80AA4223499B340076167D /* pesAutoBranch.hpp in Headers */,
+				FE80AA2D23499B340076167D /* pesVec3f.h in Headers */,
+				FE80AA3E23499B340076167D /* pesSVGTypes.h in Headers */,
+				FE80AA3423499B340076167D /* pesClipper.hpp in Headers */,
+				FEAA275D2362572F00174E2B /* unchecked.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		FE2E54D622CB33A800076ED7 /* pesEngine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE2E54DB22CB33A800076ED7 /* Build configuration list for PBXNativeTarget "pesEngine" */;
+			buildPhases = (
+				FE2E54D322CB33A800076ED7 /* Headers */,
+				FE2E54D422CB33A800076ED7 /* Sources */,
+				FE2E54D522CB33A800076ED7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pesEngine;
+			productName = pesEngine;
+			productReference = FE2E54D722CB33A800076ED7 /* libpesEngine.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FE884F4E2400A5F900B47A5E /* pesEngineTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE884F552400A5F900B47A5E /* Build configuration list for PBXNativeTarget "pesEngineTest" */;
+			buildPhases = (
+				FE884F4B2400A5F900B47A5E /* Sources */,
+				FE884F4C2400A5F900B47A5E /* Frameworks */,
+				FE884F4D2400A5F900B47A5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FE884F592400A87500B47A5E /* PBXTargetDependency */,
+			);
+			name = pesEngineTest;
+			productName = pesEngineTest;
+			productReference = FE884F4F2400A5F900B47A5E /* pesEngineTest */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FE2E54CF22CB33A700076ED7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1310;
+				ORGANIZATIONNAME = "SIHARAT THAMMAYA";
+				TargetAttributes = {
+					FE2E54D622CB33A800076ED7 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					FE884F4E2400A5F900B47A5E = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = FE2E54D222CB33A700076ED7 /* Build configuration list for PBXProject "pesEngine" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FE2E54CE22CB33A700076ED7;
+			productRefGroup = FE2E54D822CB33A800076ED7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE2E54D622CB33A800076ED7 /* pesEngine */,
+				FE884F4E2400A5F900B47A5E /* pesEngineTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FE2E54D422CB33A800076ED7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE80AA0523499B030076167D /* pesSatinColumn.cpp in Sources */,
+				FE80A9F623499B030076167D /* pugixml.cpp in Sources */,
+				FE80A9F523499B030076167D /* pesCubicSuperPath.cpp in Sources */,
+				FE4CF54123FD796D0088F432 /* pesEMBClassify.cpp in Sources */,
+				FE80A9FF23499B030076167D /* pesMath.cpp in Sources */,
+				FE80A9F423499B030076167D /* pesPathUtility.cpp in Sources */,
+				FE80A9F723499B030076167D /* pesDocument.cpp in Sources */,
+				FE80A9FA23499B030076167D /* pesPolyline.cpp in Sources */,
+				FE80A9FE23499B030076167D /* pesEMBFill.cpp in Sources */,
+				FEBA113727C6A0DE00F37BFF /* pesSkPath.cpp in Sources */,
+				FEAA276123625A1C00174E2B /* UnicodeHelper.cpp in Sources */,
+				FE80AA0A23499B030076167D /* pesColor.cpp in Sources */,
+				FE80AA0323499B030076167D /* pesGcode.cpp in Sources */,
+				FE80A9FB23499B030076167D /* pesStitchBlock.cpp in Sources */,
+				FE80A9F923499B030076167D /* pesClipper.cpp in Sources */,
+				FE80AA0723499B030076167D /* clipper.cpp in Sources */,
+				FE80AA0623499B030076167D /* pesUtility.cpp in Sources */,
+				FE80AA0023499B030076167D /* pesRectangle.cpp in Sources */,
+				FE80AA0923499B030076167D /* pesBuffer.cpp in Sources */,
+				FE80AA0423499B030076167D /* pesEffect.cpp in Sources */,
+				FE80AA0B23499B030076167D /* pesPath.cpp in Sources */,
+				FE80A9F823499B030076167D /* pesData.cpp in Sources */,
+				FE80AA0123499B030076167D /* pesAutoBranch.cpp in Sources */,
+				FE80AA0223499B030076167D /* pesSatinOutline.cpp in Sources */,
+				FE80A9FC23499B030076167D /* pesVec2f.cpp in Sources */,
+				FE80AA0823499B030076167D /* pesEncoder.cpp in Sources */,
+				FE80A9FD23499B030076167D /* pesSVG.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE884F4B2400A5F900B47A5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE8BE5BB27C75A0A00B3614F /* pesSkPath.cpp in Sources */,
+				FE884F5A2400A93600B47A5E /* pesEMBClassify.cpp in Sources */,
+				FE884F522400A5F900B47A5E /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FE884F592400A87500B47A5E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FE2E54D622CB33A800076ED7 /* pesEngine */;
+			targetProxy = FE884F582400A87500B47A5E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FE2E54D922CB33A800076ED7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../include,
+					../../,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		FE2E54DA22CB33A800076ED7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../include,
+					../../,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FE2E54DC22CB33A800076ED7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZS84VFY3G7;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		FE2E54DD22CB33A800076ED7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZS84VFY3G7;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		FE884F532400A5F900B47A5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3M3W4L293S;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					PES_ENGINE_TEST,
+					"DEBUG=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FE884F542400A5F900B47A5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3M3W4L293S;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = PES_ENGINE_TEST;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FE2E54D222CB33A700076ED7 /* Build configuration list for PBXProject "pesEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE2E54D922CB33A800076ED7 /* Debug */,
+				FE2E54DA22CB33A800076ED7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE2E54DB22CB33A800076ED7 /* Build configuration list for PBXNativeTarget "pesEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE2E54DC22CB33A800076ED7 /* Debug */,
+				FE2E54DD22CB33A800076ED7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE884F552400A5F900B47A5E /* Build configuration list for PBXNativeTarget "pesEngineTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE884F532400A5F900B47A5E /* Debug */,
+				FE884F542400A5F900B47A5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FE2E54CF22CB33A700076ED7 /* Project object */;
+}

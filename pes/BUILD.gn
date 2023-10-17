@@ -1,0 +1,28 @@
+# Copyright 2019 Google LLC
+#
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+declare_args() {
+  skia_enable_pes = true
+}
+
+import("../../gn/skia.gni")
+
+config("public_config") {
+  if (skia_enable_pes) {
+    include_dirs = [ "include" ]
+  }
+}
+
+static_library("pes") {
+  if (skia_enable_pes) {
+    import("pes.gni")
+    public_configs = [ ":public_config" ]
+    deps = [
+      "../..:skia",
+    ]
+    sources = skia_pes_sources
+    configs += [ "../../:skia_private" ]
+  }
+}

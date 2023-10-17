@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="1800">
+	<rect  fill-opacity="0.02" x="50" y="50" width="300" height="50"/>
+	<text id="example1" x="50" y="62">example1</text>
+	<rect fill-opacity="0.02" x="50" y="125" width="300" height="50"/>
+	<text id="example2" x="50" y="137">example2</text>c
+	<a xlink:href="#example3">
+		<rect fill-opacity="0.1" x="50" y="200" width="300" height="50"/>
+		<text x="169" y="230">example3</text>
+	</a>
+	<a xlink:href="#example4">
+		<rect fill-opacity="0.1" x="50" y="275" width="300" height="50"/>
+		<text x="169" y="305">example4</text>
+	</a>
+	<rect fill-opacity="0.02" x="50" y="900" width="300" height="50"/>
+	<text id="example3" x="50" y="912">example3</text>
+	<rect fill-opacity="0.02" x="50" y="975" width="300" height="50"/>
+	<text id="example4" x="50" y="987">example4</text>
+	<a xlink:href="#example1">
+		<rect fill-opacity="0.1" x="50" y="1050" width="300" height="50"/>
+		<text x="169" y="1080">example1</text>		
+	</a>
+	<a xlink:href="#example2">
+		<rect fill-opacity="0.1" x="50" y="1125" width="300" height="50"/>
+		<text x="169" y="1155">example2</text>	
+	</a>
+
+<script>
+<![CDATA[
+let fnonclick = (e) => e.onclick = (event) => (event.preventDefault(),v=e.attributes["xlink:href"].value, v && v[0]=="#"? [...document.querySelectorAll(v)].map(e=>e.getBoundingClientRect()).map(({x, y})=>({pageLeft:pL, pageTop:pT}=window.visualViewport, window.scrollTo(pL+x, pT+y) )) : document.location.href=v,false);
+
+//select all svg a-tag(exclude html a-tag) without global-link 
+let alinks = [...document.querySelectorAll('a[*|href^="#"]:not([href])')];
+alinks.map(e=>e.style.cursor='pointer');
+alinks.map(fnonclick);
+
+//select all svg g-tag(exclude html a-tag) with link
+let glinks = [...document.querySelectorAll('g[*|href]:not([href])')];
+glinks.map(e=>e.style.cursor='pointer');
+glinks.map(fnonclick);
+]]>
+</script>
+</svg>
+
