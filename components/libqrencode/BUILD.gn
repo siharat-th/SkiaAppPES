@@ -1,0 +1,136 @@
+# Copyright 2016 Google Inc.
+#
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+declare_args() {
+  skia_use_libqrencode = true
+}
+
+import("//gn/skia.gni")
+
+if (skia_use_libqrencode) {
+  config("public_config") {
+    include_dirs = [ 
+      "../externals/libqrencode",
+    ]
+    if(is_win) {
+      include_dirs += [ 
+        ".",
+      ]
+    }
+  }
+
+  static_library("libqrencode") {
+    public_configs = [ ":public_config" ]
+
+    defines = [ 
+      "__STATIC=static",
+      "STATIC_IN_RELEASE=",
+      "MAJOR_VERSION=4",
+      "MINOR_VERSION=1",
+      "MICRO_VERSION=1",
+      "VERSION=\"4.1.1\"",
+    ]
+    sources = [
+      "../externals/libqrencode/bitstream.h",
+      "../externals/libqrencode/mask.h",
+      "../externals/libqrencode/mmask.h",
+      "../externals/libqrencode/mqrspec.h",
+      "../externals/libqrencode/qrencode.h",
+      "../externals/libqrencode/qrencode_inner.h",
+      "../externals/libqrencode/qrinput.h",
+      "../externals/libqrencode/qrspec.h",
+      "../externals/libqrencode/rsecc.h",
+      "../externals/libqrencode/split.h",
+      "../externals/libqrencode/bitstream.c",
+      "../externals/libqrencode/mask.c",
+      "../externals/libqrencode/mmask.c",
+      "../externals/libqrencode/mqrspec.c",
+      "../externals/libqrencode/qrencode.c",
+      "../externals/libqrencode/qrinput.c",
+      "../externals/libqrencode/qrspec.c",
+      "../externals/libqrencode/rsecc.c",
+      "../externals/libqrencode/split.c",
+    ]
+
+    if(is_win) {
+      sources += [
+        "getopt.h",
+        "getopt.c",
+      ]
+    }
+
+    #defines = [ ]
+    #deps = [ ]
+    #cflags = [ ]
+  }
+  
+  if( !is_wasm ) {
+
+    skia_source_set("qrencview") {
+      check_includes = false
+      testonly = true
+      
+      defines = [ 
+        "__STATIC=static",
+        "STATIC_IN_RELEASE=",
+        "MAJOR_VERSION=4",
+        "MINOR_VERSION=1",
+        "MICRO_VERSION=1",
+        "VERSION=\"4.1.1\"",
+        "SDL_MAIN_HANDLED=1",
+        "HAVE_PNG",
+      ]
+
+      sources = [ "../externals/libqrencode/tests/view_qrcode.c" ]
+      
+      deps = [
+          # "//:flags",
+          "//:skia",
+          # "//:tool_utils",
+          # "//:gpu_tool_utils",
+          "//apps/sk_ui",
+          "//third_party/libsdl",
+          "//third_party/libpng",
+      ]
+      
+      public_deps = [ 
+        ":libqrencode" 
+      ]
+    }
+
+    skia_source_set("qrenccli") {
+      check_includes = false
+      testonly = true
+      
+      defines = [ 
+        "__STATIC=static",
+        "STATIC_IN_RELEASE=",
+        "MAJOR_VERSION=4",
+        "MINOR_VERSION=1",
+        "MICRO_VERSION=1",
+        "VERSION=\"4.1.1\"",
+        "SDL_MAIN_HANDLED=1",
+        "HAVE_PNG",
+      ]
+
+      sources = [ "../externals/libqrencode/qrenc.c" ]
+      
+      deps = [
+          # "//:flags",
+          "//:skia",
+          # "//:tool_utils",
+          # "//:gpu_tool_utils",
+          "//apps/sk_ui",
+          "//third_party/libsdl",
+          "//third_party/libpng",
+      ]
+      
+      public_deps = [ 
+        ":libqrencode" 
+      ]
+    }  
+  }
+
+}

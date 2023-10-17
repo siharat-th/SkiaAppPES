@@ -6,6 +6,7 @@
 #include "modules/skparagraph/src/ParagraphBuilderImpl.h"
 #include "modules/skparagraph/include/TypefaceFontProvider.h"
 #include "DecWidget.h"
+#include "include/private/base/SkTArray.h"
 
 const int TEXTALIGN_LEFT = (int)skia::textlayout::TextAlign::kLeft;
 const int TEXTALIGN_RIGHT = (int)skia::textlayout::TextAlign::kRight;

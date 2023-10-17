@@ -45,7 +45,7 @@ static_library("sk_ui") {
     ]
 
     public_deps = [ 
-      #"//components/libqrencode:libqrencode"
+      "//components/libqrencode:libqrencode"
     ]
 
     sources = [
@@ -131,7 +131,7 @@ static_library("sk_ui") {
       "../../apps2/DecUI/DecFileList.cpp",
       "../../apps2/DecUI/DecJob.cpp",
       "../../apps2/DecUI/DecParagraph.cpp",
-      #"../../apps2/DecUI/DecQRCode.cpp",
+      "../../apps2/DecUI/DecQRCode.cpp",
     ]
     if (target_cpu != "wasm") {
       sources += [
