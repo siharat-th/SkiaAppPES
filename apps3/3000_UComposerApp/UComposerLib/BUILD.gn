@@ -1,0 +1,69 @@
+# Copyright 2019 Google LLC
+#
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+declare_args() {
+  skia_enable_ucomposerlib = true
+}
+
+import("../../../gn/skia.gni")
+
+config("public_config") {
+  if (skia_enable_ucomposerlib) {
+    include_dirs = [
+      "./",
+      "../src",
+    ]
+  }
+}
+
+static_library("UComposerLib") {
+  if (skia_enable_ucomposerlib) {
+    public_configs = [ ":public_config" ]
+    include_dirs = [
+      "//apps/happyhttp",
+      "//third_party/externals/imgui",
+      "//apps2/DecUI",
+      "../../../apps2/1080_PES5Template/src/Utils/",
+    ]
+    if (is_win) {
+      cflags = [ "-DWIN32" ]
+      libs = [
+        "setupapi.lib",
+        "advapi32.lib",
+        "ws2_32.lib",
+        "mswsock.lib",
+      ]
+    }
+    deps = [
+      "../../..:skia",
+      "//third_party/imgui",
+      "//apps/sk_ui",
+    ]
+    sources = [
+      "AppLib.h",
+      "AppLib.cpp",
+      "../src/AppCreatorUComposer.cpp",
+      "../src/UComposerLayer.cpp",
+      "../src/DecUComposer.cpp",
+      "../src/DecUTestPanel.cpp",
+      "../src/DecTestWidget.cpp",
+      "../../../apps2/1080_PES5Template/src/Utils/PesSystemUtils.hpp",
+    ]
+    if (is_mac) {
+      sources += [
+        "../../../apps2/1080_PES5Template/src/Utils/PesSystemUtils.mm",
+      ]
+    }
+    else {
+      sources += [
+        "../../../apps2/1080_PES5Template/src/Utils/PesSystemUtils.cpp",
+      ]
+    }    
+    configs += [ "../../../:skia_private" ]
+    if (skia_enable_tools) {
+      configs += [ "../../../:our_vulkan_headers" ]
+    }
+  }
+}

@@ -1,0 +1,160 @@
+# Copyright 2019 Google LLC
+#
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+declare_args() {
+  skia_enable_pes5template = true
+}
+
+import("../../../gn/skia.gni")
+
+config("public_config") {
+  if (skia_enable_pes5template) {
+    include_dirs = [
+      "./",
+      "../src",
+    ]
+  }
+}
+
+static_library("PESTemplateLib") {
+  if (skia_enable_pes5template) {
+    public_configs = [ ":public_config" ]
+    include_dirs = [
+      "//apps/happyhttp",
+      "//third_party/externals/imgui",
+      "//apps2/DecUI",
+      "//modules/pes/include",
+    ]
+
+    deps = [
+      "../../..:skia",
+      "//third_party/imgui",
+      "//third_party/sqlitecpp",
+      "//third_party/potrace",
+      "//apps/sk_ui",
+      "//modules/pes",     
+    ]
+    sources = [
+      "AppLib.h",
+      "AppLib.cpp",
+      "../src/AppCreatorPES5.cpp",
+      "../src/GUI/PES5Layer.hpp",
+      "../src/GUI/PES5Layer.cpp",
+      "../src/GUI/PES5Topbar.hpp",
+      "../src/GUI/PES5Topbar.cpp",
+      "../src/GUI/PES5Toolbox.hpp",
+      "../src/GUI/PES5Toolbox.cpp",
+      "../src/GUI/PES5DocumentView.hpp",
+      "../src/GUI/PES5DocumentView.cpp",
+      "../src/GUI/PES5RightPanel.hpp",
+      "../src/GUI/PES5RightPanel.cpp",
+      "../src/GUI/PES5ModalDialog.hpp",
+      "../src/GUI/PES5ModalDialog.cpp",
+      "../src/GUI/DecSpinner.hpp",
+      "../src/GUI/DecSpinner.cpp",
+      "../src/Utils/PesSystemUtils.hpp",
+      "../src/Utils/PesUnicodeUtils.hpp",
+      "../src/Utils/PesUnicodeUtils.cpp",
+      "../src/Utils/PesPPEFUtils.hpp",
+      "../src/Utils/PesPPEFUtils.cpp",
+      "../src/Utils/PesTracingUtils.hpp",
+      "../src/Utils/PesTracingUtils.cpp",
+      "../src/Utils/PesStitchSimulator.hpp",
+      "../src/Utils/PesStitchSimulator.cpp",
+      "../src/Utils/trace/bitmap.h",
+      "../src/Utils/trace/pool.h",
+      "../src/Utils/trace/siox.hpp",
+      "../src/Utils/trace/siox.cpp",
+      "../src/Utils/trace/imagemap.hpp",
+      "../src/Utils/trace/imagemap.cpp",
+      "../src/Utils/trace/quantize.hpp",
+      "../src/Utils/trace/quantize.cpp",
+      "../src/Utils/trace/filterset.hpp",
+      "../src/Utils/trace/filterset.cpp",
+      "../src/Utils/trace/imagemap-skia.hpp",
+      "../src/Utils/trace/imagemap-skia.cpp",
+      "../src/Utils/trace/trace.hpp",
+      "../src/Utils/trace/trace.cpp",
+      "../src/Utils/PesSatinColumn.hpp",
+      "../src/Utils/PesSatinColumn.cpp",
+      "../src/PES5Command.hpp",
+      "../src/PES5Command.cpp",
+      "../src/PESUndoRedoCommand.hpp",
+      "../src/PESUndoRedoCommand.cpp",
+      "../src/PES5Pattern.h",
+    ]
+
+    if (is_mac) {
+      sources += [
+        "../src/Utils/PesSystemUtils.mm",
+      ]
+    }
+    else {
+      sources += [
+        "../src/Utils/PesSystemUtils.cpp",
+      ]
+    }
+
+    if (is_win) {
+      libs = [
+        "comdlg32.lib",
+      ]
+    }
+     
+    # linux
+    # install: sudo apt install libgtk-3-dev
+    # see-configs: pkg-config --cflags --libs gtk+-3.0
+    if (is_linux) {
+      cflags = [
+        "-pthread",
+      ]
+          
+      include_dirs += [
+        "/usr/include/gtk-3.0",
+        "/usr/include/at-spi2-atk/2.0",
+        "/usr/include/at-spi-2.0",
+        "/usr/include/dbus-1.0",
+        "/usr/lib/x86_64-linux-gnu/dbus-1.0/include",
+        "/usr/include/gtk-3.0",
+        "/usr/include/gio-unix-2.0",
+        "/usr/include/cairo",
+        "/usr/include/pango-1.0",
+        "/usr/include/fribidi",
+        "/usr/include/harfbuzz",
+        "/usr/include/atk-1.0",
+        "/usr/include/cairo",
+        "/usr/include/pixman-1",
+        "/usr/include/uuid",
+        "/usr/include/freetype2",
+        "/usr/include/libpng16",
+        "/usr/include/gdk-pixbuf-2.0",
+        "/usr/include/libmount",
+        "/usr/include/blkid",
+        "/usr/include/glib-2.0",
+        "/usr/lib/x86_64-linux-gnu/glib-2.0/include",
+      ]
+      
+      libs = [
+        "gtk-3",
+        "gdk-3",
+        "pangocairo-1.0",
+        "pango-1.0",
+        "harfbuzz",
+        "atk-1.0",
+        "cairo-gobject",
+        "cairo",
+        "gdk_pixbuf-2.0",
+        "gio-2.0",
+        "gobject-2.0",
+        "glib-2.0",
+      ]
+    }    
+
+    configs += [ "../../../:skia_private" ]
+    if (skia_enable_tools) {
+      configs += [ "../../../:our_vulkan_headers" ]
+    }
+  }
+}

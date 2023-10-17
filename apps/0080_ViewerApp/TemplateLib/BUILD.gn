@@ -1,0 +1,54 @@
+# Copyright 2019 Google LLC
+#
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+declare_args() {
+  skia_enable_templatelib = true
+}
+
+import("../../../gn/skia.gni")
+
+config("public_config") {
+  if (skia_enable_templatelib) {
+    include_dirs = [ 
+      "./",
+      "//apps/happyhttp",
+      "../../../third_party/externals/imgui",
+    ]
+  }
+}
+
+static_library("TemplateLib") {
+  if (skia_enable_templatelib) {
+    public_configs = [ ":public_config" ]
+    include_dirs = [ 
+      "./",
+      "third_party/externals/imgui",
+    ]
+    if (is_win) {
+      cflags = [ "-DWIN32" ]
+      libs = [ 
+        "setupapi.lib",
+        "advapi32.lib",
+        "ws2_32.lib",
+        "mswsock.lib",
+      ]       
+    }
+    deps = [
+      "../../..:skia",
+      "//third_party/imgui",
+      "//apps/sk_ui",
+    ]
+    sources = [
+      "AppLib.h",
+      "AppLib.cpp",
+      "../src/AppCreator.cpp",
+      "../src/MyWidgetLayer.cpp"
+    ]
+    configs += [ "../../../:skia_private" ]
+    if (skia_enable_tools) {
+      configs += [ "../../../:our_vulkan_headers" ]
+    }
+  }
+}

@@ -1,0 +1,4 @@
+*.xcarchive
+*.xcworkspace
+xcuserdata/
+build/

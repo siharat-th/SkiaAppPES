@@ -1,0 +1,51 @@
+# Copyright 2019 Google LLC
+#
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+if( !is_win ){
+
+declare_args() {
+  skia_enable_mqttc_lib = true
+}
+
+import("../../gn/skia.gni")
+
+config("public_config") {
+  if (skia_enable_mqttc_lib) {
+    include_dirs = [ 
+      "./",
+    ]
+  }
+}
+
+static_library("mqtt_c") {
+  if (skia_enable_mqttc_lib) {
+    public_configs = [ ":public_config" ]
+    defines = [ "IMGUI_ENABLE_OSX_DEFAULT_CLIPBOARD_FUNCTIONS" ]    
+    include_dirs = [ 
+      "./",
+    ]
+    if (is_win) {
+      cflags = [ "-DWIN32" ]
+      libs = [ 
+        "setupapi.lib",
+        "advapi32.lib",
+        "ws2_32.lib",
+        "mswsock.lib",
+      ]       
+    }
+    deps = [
+    ]
+    sources = [  
+      "./mqtt.c",
+      "./mqtt_pal.c",
+    ]
+    #configs += [ "../../:skia_private" ]
+    if (skia_enable_tools) {
+      configs += [ "../../:our_vulkan_headers" ]
+    }
+  }
+}
+
+}

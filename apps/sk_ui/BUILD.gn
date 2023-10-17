@@ -1,0 +1,232 @@
+# Copyright 2019 Google LLC
+#
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+declare_args() {
+  skia_enable_skiaappslib = true
+}
+
+import("../../gn/skia.gni")
+
+config("public_config") {
+  if (skia_enable_skiaappslib) {
+    include_dirs = [
+      "./",
+      "./Widgets",
+      "../happyhttp",
+      "//apps2/DecUI",
+    ]
+  }
+}
+
+static_library("sk_ui") {
+  if (skia_enable_skiaappslib) {
+    public_configs = [ ":public_config" ]
+    defines = [ "IMGUI_ENABLE_OSX_DEFAULT_CLIPBOARD_FUNCTIONS" ]
+    include_dirs = [
+      "../",
+      "../mqtt_c",
+      "//third_party/externals/imgui",
+    ]
+    if (is_win) {
+      cflags = [ "-DWIN32" ]
+      libs = [
+        "setupapi.lib",
+        "advapi32.lib",
+        "ws2_32.lib",
+        "mswsock.lib",
+      ]
+    }
+    deps = [
+      "//:skia",
+      "//third_party/imgui",
+      "//modules/skparagraph"
+    ]
+
+    public_deps = [ 
+      "//components/libqrencode:libqrencode" 
+    ]    
+
+    sources = [
+      "../../tools/Resources.cpp",
+      "../../tools/flags/CommandLineFlags.cpp",
+      "SkiaApp.h",
+      "SkiaApp.cpp",
+      "SkiaAppLayer.h",
+      "SkiaAppLayer.cpp",
+      "TemplateLayer.h",
+      "TemplateLayer.cpp",
+      "MouseTest.h",
+      "MouseTest.cpp",
+      #"WidgetLayer.h",
+      #"WidgetLayer.cpp",
+      "FPSLayer.cpp",
+      #"Widgets/Widget.h",
+      #"Widgets/Widget.cpp",
+      #"Widgets/WidgetData.h",
+      #"Widgets/WidgetData.cpp",
+      #"Widgets/Container.h",
+      #"Widgets/Container.cpp",
+      #"Widgets/Image.h",
+      #"Widgets/Image.cpp",
+      #"Widgets/Text.h",
+      #"Widgets/Text.cpp",
+      #"Widgets/Scaffold.h",
+      #"Widgets/Scaffold.cpp",
+      #"Widgets/Downloader.h",
+      #"Widgets/Downloader.cpp",
+      #"Widgets/AppBar.h",
+      #"Widgets/AppBar.cpp",
+      #"Widgets/Button.h",
+      #"Widgets/Button.cpp",
+      #"Widgets/List.h",
+      #"Widgets/List.cpp",
+      #"Widgets/Graph.h",
+      #"Widgets/Graph.cpp",
+      #"Widgets/Tab.h",
+      #"Widgets/Tab.cpp",
+      #"Widgets/Toast.h",
+      #"Widgets/Toast.cpp",
+      #"Widgets/Slider.h",
+      #"Widgets/Slider.cpp",
+      #"Widgets/Guage.h",
+      #"Widgets/Guage.cpp",
+      #"Widgets/WidgetMQTT.h",
+      #"Widgets/WidgetMQTT.cpp",
+      #"Widgets/Switch.h",
+      #"Widgets/Switch.cpp",
+      "../../apps2/DecUI/DecUILayer.cpp",
+      "../../apps2/DecUI/DecUI.cpp",
+      "../../apps2/DecUI/DecFont.cpp",
+      "../../apps2/DecUI/DecWidget.cpp",
+      "../../apps2/DecUI/DecContainer.cpp",
+      "../../apps2/DecUI/DecFlowContainer.cpp",
+      "../../apps2/DecUI/DecRowContainer.cpp",
+      "../../apps2/DecUI/DecColumnContainer.cpp",
+      "../../apps2/DecUI/DecStackContainer.cpp",
+      "../../apps2/DecUI/DecPageContainer.cpp",
+      "../../apps2/DecUI/DecImage.cpp",
+      "../../apps2/DecUI/DecText.cpp",
+      "../../apps2/DecUI/DecIcon.cpp",
+      "../../apps2/DecUI/DecLabel.cpp",
+      "../../apps2/DecUI/DecButton.cpp",
+      "../../apps2/DecUI/DecCheckBox.cpp",
+      "../../apps2/DecUI/DecRadioButton.cpp",
+      "../../apps2/DecUI/DecSwitch.cpp",
+      "../../apps2/DecUI/DecSlider.cpp",
+      "../../apps2/DecUI/DecSVGDom.cpp",
+      "../../apps2/DecUI/DecSpacer.cpp",
+      "../../apps2/DecUI/DecScroller.cpp",
+      "../../apps2/DecUI/DecList.cpp",
+      "../../apps2/DecUI/DecListItem.cpp",
+      "../../apps2/DecUI/DecTree.cpp",
+      "../../apps2/DecUI/DecTreeItem.cpp",
+      "../../apps2/DecUI/DecModal.cpp",
+      "../../apps2/DecUI/DecMessageBox.cpp",
+      "../../apps2/DecUI/DecFileDialog.cpp",
+      "../../apps2/DecUI/DecComboBox.cpp",
+      "../../apps2/DecUI/DecComboBoxItem.cpp",
+      "../../apps2/DecUI/DecTab.cpp",
+      "../../apps2/DecUI/DecFileList.cpp",
+      "../../apps2/DecUI/DecJob.cpp",
+      "../../apps2/DecUI/DecParagraph.cpp",
+      "../../apps2/DecUI/DecQRCode.cpp",
+    ]
+    if (target_cpu != "wasm") {
+      sources += [
+        "../happyhttp/happyhttp.cpp",
+      ]
+    }
+    # To enable libsvg for wasm-canvaskit
+    # just add 2 features to args of gn gen: 
+    # - skia_enable_svg=true 
+    # - skia_use_expat=true 
+    #
+    #if (target_cpu == "wasm") {
+    #
+    #  deps += [
+    #    "//third_party/expat"
+    #  ]
+    #
+    #  sources += [
+    #    "../../src/svg/SkSVGCanvas.cpp",
+    #    "../../src/svg/SkSVGDevice.cpp",
+    #    "../../src/xml/SkDOM.cpp",
+    #    "../../src/xml/SkXMLParser.cpp",
+    #    "../../src/xml/SkXMLWriter.cpp",
+    #
+    #    "../../modules/svg/src/SkSVGAttribute.cpp",
+    #    "../../modules/svg/src/SkSVGAttributeParser.cpp",
+    #    "../../modules/svg/src/SkSVGCircle.cpp",
+    #    "../../modules/svg/src/SkSVGClipPath.cpp",
+    #    "../../modules/svg/src/SkSVGContainer.cpp",
+    #    "../../modules/svg/src/SkSVGDOM.cpp",
+    #    "../../modules/svg/src/SkSVGEllipse.cpp",
+    #    "../../modules/svg/src/SkSVGImage.cpp",
+    #    "../../modules/svg/src/SkSVGFe.cpp",
+    #    "../../modules/svg/src/SkSVGFeBlend.cpp",
+    #    "../../modules/svg/src/SkSVGFeFlood.cpp",
+    #    "../../modules/svg/src/SkSVGFeImage.cpp",
+    #    "../../modules/svg/src/SkSVGFeOffset.cpp",
+    #    "../../modules/svg/src/SkSVGFeMorphology.cpp",
+    #    "../../modules/svg/src/SkSVGFeGaussianBlur.cpp",
+    #    "../../modules/svg/src/SkSVGFeLighting.cpp",
+    #    "../../modules/svg/src/SkSVGFeLightSource.cpp",
+    #    "../../modules/svg/src/SkSVGFeDisplacementMap.cpp",
+    #    "../../modules/svg/src/SkSVGFeColorMatrix.cpp",
+    #    "../../modules/svg/src/SkSVGFeComposite.cpp",
+    #    "../../modules/svg/src/SkSVGFeTurbulence.cpp",
+    #    "../../modules/svg/src/SkSVGFilter.cpp",
+    #    "../../modules/svg/src/SkSVGFilterContext.cpp",
+    #    "../../modules/svg/src/SkSVGGradient.cpp",
+    #    "../../modules/svg/src/SkSVGLine.cpp",
+    #    "../../modules/svg/src/SkSVGLinearGradient.cpp",
+    #    "../../modules/svg/src/SkSVGMask.cpp",
+    #    "../../modules/svg/src/SkSVGNode.cpp",
+    #    "../../modules/svg/src/SkSVGPath.cpp",
+    #    "../../modules/svg/src/SkSVGPattern.cpp",
+    #    "../../modules/svg/src/SkSVGPoly.cpp",
+    #    "../../modules/svg/src/SkSVGRadialGradient.cpp",
+    #    "../../modules/svg/src/SkSVGRect.cpp",
+    #    "../../modules/svg/src/SkSVGRenderContext.cpp",
+    #    "../../modules/svg/src/SkSVGSVG.cpp",
+    #    "../../modules/svg/src/SkSVGShape.cpp",
+    #    "../../modules/svg/src/SkSVGStop.cpp",
+    #    "../../modules/svg/src/SkSVGText.cpp",
+    #    "../../modules/svg/src/SkSVGTransformableNode.cpp",
+    #    "../../modules/svg/src/SkSVGUse.cpp",
+    #    "../../modules/svg/src/SkSVGValue.cpp",
+    #    "../../tools/viewer/SKPSlide.cpp",
+    #    "../../tools/viewer/SampleSlide.cpp",
+    #    "../../tools/viewer/SvgSlide.cpp",
+    #  ]
+    #  #import("//modules/svg/svg.gni")
+    #  #include_dirs += skia_svg_public
+    #  #sources += skia_svg_sources
+    #  #
+    #  #import("//modules/skresources/skresources.gni")
+    #  #include_dirs += skia_skresources_public
+    #  #sources += skia_skresources_sources
+    #  #sources += [
+    #  #  "//src/xml/SkDOM.h",
+    #  #  "//src/xml/SkDOM.cpp",
+    #  #  "//src/xml/SkXMLParser.h",
+    #  #  "//src/xml/SkXMLParser.cpp",
+    #  #  "//src/xml/SkXMLWriter.h",
+    #  #  "//src/xml/SkXMLWriter.cpp",
+    #  #]
+    #
+    #  deps += [
+    #    "//modules/skresources:skresources",
+    #    "//third_party/expat",
+    #    "//modules/svg:svg",
+    #
+    #  ]
+    #}
+    #configs += [ "../../:skia_private" ]
+    if (skia_enable_tools) {
+      configs += [ "../../:our_vulkan_headers" ]
+    }
+  }
+}

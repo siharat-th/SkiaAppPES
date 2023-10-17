@@ -1,0 +1,5 @@
+TemplateApp
+lib/
+obj/
+Debug/
+.vs/
